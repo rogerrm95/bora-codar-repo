@@ -3,7 +3,7 @@
 * {
     padding: 0;
     margin: 0;
-    border-box: 0;
+    box-sizing: border-box;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -75,14 +75,27 @@ body * {
     width: 100%
 }
 
-.controllers img {
+.controllers button {
+    all: unset;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition: 0.2s opacity;
 }
 
-.controllers img:hover {
-    opacity: 0.5
+.controllers button:hover {
+    opacity: 0.5;
+}
+
+.controllers #pause {
+    display: none;
+}
+
+.controllers img {
+    object-fit: cover;
 }
 
 .progress {
@@ -102,15 +115,14 @@ body * {
     border-radius: 0.5rem;
 }
 
- // Continuar //
 .bar {
     position: absolute;
-    inset: 0;
+    right: 0;
+    left: 0;
 
-    height: 6px;
-    width: 50%; // ALTERAR //
-
-    color: red;
+    height: 100%;
+    width: 50%;
+    background-color: var(--white);
 }
 
 .duration-time {
@@ -123,4 +135,5 @@ body * {
 
 .duration-time span {
     font-size: 0.825rem;
+    color: var(--accent);
 }
