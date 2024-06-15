@@ -12,6 +12,7 @@
 :root {
     --purple-900: #0F0D13;
     --purple-700: #2A2141;
+    --purple-500: #8B71D2;
     
     --heading: #E1E1E6;
     --text: #E1E1E6;
@@ -32,9 +33,11 @@ body * {
 
 .container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     place-items: center;
+
+    height: 100vh;
 }
     
 .player {
@@ -86,6 +89,10 @@ body * {
     transition: 0.2s opacity;
 }
 
+.controllers button:focus {
+    outline: solid 2px var(--purple-500);  
+}
+
 .controllers button:hover {
     opacity: 0.5;
 }
@@ -115,13 +122,17 @@ body * {
     border-radius: 0.5rem;
 }
 
+.progress-bar:focus {
+    outline: 2px solid var(--purple-500);
+}
+
 .bar {
     position: absolute;
     right: 0;
     left: 0;
 
     height: 100%;
-    width: 50%;
+    width: 0%;
     background-color: var(--white);
 }
 

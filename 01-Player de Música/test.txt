@@ -1,9 +1,0 @@
-
-
-2 Minutos = 120 Segundos
-
-1 Minuto  = 60 Segundos
-
-
-60 / 120 = 0,5
-(currentTime / durationTime) * 100 = width (50%)
