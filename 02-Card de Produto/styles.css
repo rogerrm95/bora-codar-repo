@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;1,600&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; // 15px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
+}
+
+:root {
+    --rose-100: #D9CDF7;
+    --rose-900: #271A45;
+    
+    --heading: #271A45;
+    --text: #271A45;
+    --accent: #271A45;
+
+    --white: #E1E1E6;
+}
+
+body {
+    background-color: var(--rose-100);
+    color: var(--text);
+}
+
+body * {
+    font-family: "Lato", sans-serif;
+}
+
+.container {
+    height: 100vh;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 0.75rem;
+
+    padding: 1rem;
+}
+
+#product-view {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#product-view > img{
+    object-fit: contain;
+    max-width: 450px;
+}
+
+#product-view button {
+    all: unset;
+
+    cursor: pointer;
+    
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    top: -8px;
+
+    transition: 0.3s opacity;
+}
+
+#product-view button:hover{
+    opacity: 0.5
+}
+
+#product-view button:has(:focus){
+    outline: var(--rose-900) 1px solid;
+}
+
+#product-view #pause-gif {
+    display: none;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.product-info .code {
+    font-weight: 300;
+}
+
+.product-info .product {
+    font: 600 3rem "Crimson Pro", sans-serif;
+}
+
+.product-info .price {
+    font-size: 1.5rem;
+}
+
+.product-card button {
+    all: unset;
+    cursor: pointer;
+
+    border: 1px solid var(--rose-900);
+    border-radius: 999px;
+    
+    padding: 0.5rem 1rem;
+    width: 148px;
+
+    font-size: 0.875rem;
+    transition: 0.3s all;
+}
+
+.product-card button:hover{
+    background: var(--rose-900);
+    color: var(--rose-100);
+}
+
+// MEDIA QUERIES //
+
+@media (min-width: 720px) {    
+    #product-view button {
+        right: 20%;
+    }
+}
+
+@media (max-width: 300px) {
+    #product-view > img {
+        width: 275px;
+    }
+}
