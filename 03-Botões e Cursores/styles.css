@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; // 15px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
+}
+
+:root {
+    --purple-900: #0B0911;
+    --purple-800: #130F1E;
+    --purple-700: #271A45;
+    --purple-500: #8257E5;
+    --purple-400: #9674E5;
+    --purple-100: #D9CDF7;
+
+    --gray-500: #3C3748;
+    --gray-400: #6A617F;
+    --gray-200: #B1B0B5;
+
+    --text: #FFF;
+}
+
+body {
+    background-color: var(--purple-900);
+    color: var(--text);
+}
+
+body * {
+    font-family: "Roboto", sans-serif;
+}
+
+h2 {
+    font: 700 2rem "Inter",sans-serif;
+}
+.container {
+    height: 100vh;
+    margin: auto;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 2rem;
+}
+
+.description {
+    color: var(--grey-200);
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+}
+
+#buttons-type-section {
+    order: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 2rem;
+}
+
+#buttons-type-section header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#buttons-test-section {
+    order: 1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    padding: 3rem;
+    background: var(--purple-800);    
+}
+
+.buttons-testing {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    padding: 0.75rem;
+    font: 500 0.75rem "Inter",sans-serif;
+    border-radius: 1.5rem;
+
+    transition: all 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:disabled {
+    opacity: 0.56;
+    cursor: url('./assets/not-allowed-cursor.png'), auto;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.15);
+}
+
+button:focus {
+    outline: 2px solid var(--purple-100);
+}
+
+button > img {
+    margin-right: 0.5rem;
+}
+
+.primary {
+    background: var(--purple-500);
+    color: var(--text);
+}
+
+.secondary {
+    background: var(--gray-500);
+    color: var(--text);
+}
+
+.tertiary {
+    color: var(--text);
+}
+
+
+/* MEDIA QUERIES */
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 720px) {    
+
+}
+
+@media (max-width: 500px) {
+
+}
