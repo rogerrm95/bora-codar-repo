@@ -16,8 +16,159 @@
                     Dentro de um layout, botões servem para destacar ações importantes a serem tomadas. Acompanhe abaixo um exemplo de tipos e propriedade.
                 </p>
             </header>
+
+            <!-- TABELA -->
+            <div id="table-container">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>BOTÃO PRIMÁRIO</th>
+                        <th>BOTÃO SECUNDÁRIO</th>
+                        <th>BOTÃO TERCIÁRIO</th>
+                        <th>CURSOR</th>
+                    </tr>
+
+                    <!-- 1ª LINHA -->
+                    <tr>
+                        <td class="header">DEFAULT</td>
+                        <td>
+                            <button class="primary">
+                                DEFAULT PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary">
+                                DEFAULT SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary">
+                                DEFAULT TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/simple-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+
+                    <!-- 2ª LINHA -->
+                    <tr>
+                        <td class="header">HOVER</td>
+                        <td>
+                            <button class="primary hover">
+                                HOVER PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary hover">
+                                HOVER SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary hover">
+                                HOVER TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/simple-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+
+                    <!-- 3ª LINHA -->
+                    <tr>
+                        <td class="header">FOCUS</td>
+                        <td>
+                            <button class="primary focus">
+                                FOCUS PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary focus">
+                                FOCUS SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary focus">
+                                FOCUS TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/simple-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+                    <!-- 4ª LINHA -->
+                    <tr>
+                        <td class="header">DISABLED</td>
+                        <td>
+                            <button class="primary disabled" disabled>
+                                DISABLED PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary disabled" disabled>
+                                DISABLED SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary disabled" disabled>
+                                DISABLED TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/not-allowed-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+
+                    <!-- 5ª LINHA -->
+                    <tr>
+                        <td class="header">LOADING</td>
+                        <td>
+                            <button class="primary loading">
+                                LOADING PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary loading">
+                                LOADING SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary loading">
+                                LOADING TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/loading-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+                    <!-- 6ª LINHA -->
+                    <tr>
+                        <td class="header">MOVABLE</td>
+                        <td>
+                            <button class="primary movable" draggable="true">
+                                MOVABLE PRIMARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="secondary movable" draggable="true">
+                                MOVABLE SECONDARY
+                            </button>
+                        </td>
+                        <td>
+                            <button class="tertiary movable" draggable="true">
+                                MOVABLE TERTIARY
+                            </button>
+                        </td>
+                        <td>
+                            <img src="./assets/drag-cursor.png" alt="Cursor Padrão">
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
         </section>
 
+        <!-- SESSÃO - BOTÕES DE TESTE -->
         <section id="buttons-test-section">
             <header>
                 <h2>Teste os botões</h2>
@@ -27,15 +178,15 @@
             </header>
 
             <div class="buttons-testing">
-                <button class="primary" type="button" >
+                <button class="primary" type="button" name="btn-test-primary">
                     INTERAJA COMIGO
                 </button>
 
-                <button class="secondary" disabled>
+                <button class="secondary" name="btn-test-secondary" disabled >
                     INTERAJA COMIGO
                 </button>
 
-                <button class="tertiary">
+                <button class="tertiary movable" name="btn-test-tertiary" draggable="true">
                     <img src="./assets/hamburguer-icon.svg" alt="Menu" />
                     INTERAJA COMIGO
                 </button>
