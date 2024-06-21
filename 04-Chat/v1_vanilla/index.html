@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    
+    <title>Chat - V.1 | #BoraCodar</title>
+</head>
+<body>
+    <div class="container">
+       <header>
+            <div id="perfil">
+                <img src="./assets/avatar.jpg" alt="Foto de Perfil - Roger Marques" class="perfil-avatar"/>
+
+                <div class="perfil-info">
+                    <span>Roger Marques</span>
+                    <span>Online</span>
+                </div>
+
+                <button type="button" class="btn-close-dialog" title="Fechar conversa">
+                    <img src="./assets/close-icon.svg" alt="Botão fechar conversa"/>
+                </button>
+            </div>
+
+            <span id="message-date" alt="Data de mensagem">
+                Hoje 11:30
+            </span>
+       </header>
+
+       <section id='chat'>
+            <div class="message-received message-box">
+                <span class="head">
+                    Roger - 11:30
+                </span>
+
+                <p class="message">
+                    Tive uma ideia incrível para um projeto! 😍
+                </p>
+            </div>
+
+            <div class="message-sent message-box">
+                <span class="head">
+                    Você - 11:31
+                </span>
+
+                <p class="message">
+                    Sério? Me conta mais.
+                </p>
+            </div>
+
+            <div class="message-received message-box">
+                <span class="head">
+                    Roger - 11:34
+                </span>
+
+                <p class="message">
+                    E se a gente fizesse um chat moderno e responsivo em apenas uma semana?
+                </p>
+            </div>
+
+            <div class="message-sent message-box">
+                <span class="head">
+                    Você - 11:35
+                </span>
+
+                <p class="message">
+                    #boraCodar! 🚀
+                </p>
+            </div>
+       </section>
+
+       <footer>
+            <form id="message-form">
+                <input type="text" id="message-input" placeholder="Digite sua mensagem"/>
+                <button type="submit" id="btn-send-message" title="Enviar mensagem" name="btn-send-message">
+                    <img src="./assets/send-icon.svg" alt="Icone de enviar mensagem">
+                </button>
+            </form>
+       </footer>
+    </div>  
+</body>
+    <script src="scripts.js"></script>  
+</html>
