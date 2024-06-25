@@ -33,6 +33,7 @@
 
     --text: #E1E1E6;
     --input: #282843;
+    --accent: #282843;
     --background: #1A1924
 }
 
@@ -67,6 +68,9 @@ header {
     justify-content: space-between;
     align-items: center; // Verificar //
     gap: 1.5rem;
+
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.625rem;
 }
 
 #perfil {
@@ -170,8 +174,12 @@ footer {
     transition: all 0.3s;
 }
 
-#message-form button:hover{
+#message-form button:hover:not(:disabled){
     opacity: 75%;
+}
+#message-form button:disabled{
+    opacity: 25%;
+    cursor: not-allowed;
 }
 
 /* CHAT */
@@ -179,7 +187,9 @@ footer {
 #chat {
    display: flex;
    flex-direction: column;
-   gap: 1.875rem; 
+   gap: 1.875rem;
+
+   overflow-y: scroll;
 }
 
 .message-box {
@@ -188,6 +198,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+
+    animation: fadeIn 1s;
 }
 
 .message-sent {
@@ -214,6 +226,31 @@ footer {
 
 .message-sent > span {
     text-align: right;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+
+::-webkit-scrollbar-track {
+    background: var(--purple-900); 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent); 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+    cursor: pointer;
 }
 
 /* MEDIA QUERIES */
