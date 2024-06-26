@@ -216,12 +216,14 @@ footer {
 
 .message-sent {
     margin-left: auto;
-    max-width: 50%;
 }
 
 .message-received {
     margin-right: auto;
-    max-width: 50%;
+}
+
+.message-received, .message-sent {
+    overflow-wrap: break-word;
 }
 
 .message-received > p {
@@ -268,11 +270,7 @@ footer {
 /* MEDIA QUERIES */
 
 @media (min-width: 992px) {
-    .container {
-
+    .message-received, .message-sent {
+        max-width: 50%;
    } 
-}
-
-@media (min-width: 525px) {
-
 }

@@ -45,8 +45,10 @@ messageInputBox.addEventListener('click', () => {
 messageForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    sendAMessage(inputMessage.value)
-    chat.scrollTop = chat.scrollHeight
+    if (inputMessage.value.trim().length > 0){
+        sendAMessage(inputMessage.value)
+        chat.scrollTop = chat.scrollHeight
+    }
     
     resetFields()
 })
