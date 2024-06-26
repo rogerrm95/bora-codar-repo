@@ -12,13 +12,15 @@ const chat = document.getElementById('chat')
 function sendAMessage(message){
     const hours = new Date().getHours()
     const minutes = new Date().getMinutes()
+    const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes
+    const time = `${hours}:${minutesFormatted}`
 
     const messageSentBox = document.createElement('div')
     messageSentBox.className = 'message-sent message-box'
 
     const spanHead = document.createElement('span')
     spanHead.className = 'head'
-    spanHead.innerHTML = `Você - ${hours}:${minutes}`
+    spanHead.innerHTML = `Você - ${time}`
 
     const pMessage = document.createElement('p')
     pMessage.className = 'message'
