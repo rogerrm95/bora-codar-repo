@@ -5,7 +5,7 @@ const messageForm = document.getElementById('message-form')
 const inputMessage = document.getElementById('message-input')
 const btnSendMessage = document.getElementById('btn-send-message')
 
-const perfilInfo = document.getElementsByClassName('perfil-info')
+const perfilInfo = document.getElementsByClassName('perfil-info')[0]
 
 const chat = document.getElementById('chat')
 
@@ -56,3 +56,18 @@ inputMessage.addEventListener('keyup', () => {
         btnSendMessage.setAttribute('disabled', true)
    }
 })
+
+window.onload = () => {
+    const onlineUserStatus = navigator.onLine
+
+    const spanStatusUser = document.createElement('span')
+    perfilInfo.appendChild(spanStatusUser)
+   
+    if (onlineUserStatus) {
+        perfilInfo.children[1].setAttribute('online', true)
+        perfilInfo.children[1].innerHTML='Online'
+    } else {
+        perfilInfo.children[1].setAttribute('offline', true)
+        perfilInfo.children[1].innerHTML='Offline'
+    }
+}

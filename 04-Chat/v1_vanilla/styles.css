@@ -99,7 +99,6 @@ header {
 }
 
 .perfil-info span:nth-child(2){
-    color: var(--green-200); // Via JavaScript //
     font-size: 0.75rem;
     margin-left: 1rem;
     position: relative;
@@ -108,21 +107,34 @@ header {
     align-items: center;
 }
 
+.perfil-info span[offline="true"] {
+    color: var(--red-500);
+}
+
+.perfil-info span[online="true"] {
+    color: var(--green-200);
+}
+
 .perfil-info span:nth-child(2)::before {
     content: "";
     width: 8px;
     height: 8px;
-    background: var(--green-200);
     position: absolute;
     margin-left: -1rem;
     border-radius: 50%;
 }
 
+.perfil-info span[offline="true"]::before {
+    background: var(--red-500);
+}
+
+.perfil-info span[online="true"]::before {
+    background: var(--green-200);
+}
+
 #perfil > button {
     margin-left: auto;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
