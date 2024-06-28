@@ -13,40 +13,42 @@
             <main id="calculator">
                 <section id="display">
                     <span id="display-expression">
-                        1 + 1
+                        0
                     </span>
     
                     <div id="display-result">
                         <span> = </span>
-                        <p>2</p>
+                        <p>
+                            0
+                        </p>
                     </div>
                 </section>
     
                 <section id="keyboard">
                         <button type="button" name="CE">CE</button>
                         <button type="button" name="C">C</button>
-                        <button type="button" name="%">%</button>
-                        <button type="button" name="÷" class="operation">÷</button>
+                        <button type="button" onclick="addOperation()" name="%">%</button>
+                        <button type="button" onclick="addOperation('/')" name="/" class="operation">÷</button>
     
-                        <button type="button" name="7">7</button>
-                        <button type="button" name="8">8</button>
-                        <button type="button" name="9">9</button>
-                        <button type="button" name="X" class="operation">x</button>
+                        <button type="button" onclick="addDigit(7)" name="7" value="7">7</button>
+                        <button type="button" onclick="addDigit(8)" name="8" value="8">8</button>
+                        <button type="button" onclick="addDigit(9)" name="9" value="9">9</button>
+                        <button type="button" onclick="addOperation('x')" name="X" class="operation">x</button>
                         
-                        <button type="button" name="4">4</button>
-                        <button type="button" name="5">5</button>
-                        <button type="button" name="6">6</button>
-                        <button type="button" name="-" class="operation">-</button>
+                        <button type="button" onclick="addDigit(4)" name="4" value="4">4</button>
+                        <button type="button" onclick="addDigit(5)" name="5" value="5">5</button>
+                        <button type="button" onclick="addDigit(6)" name="6" value="6">6</button>
+                        <button type="button" onclick="addOperation('-')" name="-" class="operation">-</button>
     
-                        <button type="button" name="1">1</button>
-                        <button type="button" name="2">2</button>
-                        <button type="button" name="3">3</button>
-                        <button type="button" name="+" class="operation"> + </button>
+                        <button type="button" onclick="addDigit(1)" name="1" value="1">1</button>
+                        <button type="button" onclick="addDigit(2)" name="2" value="2">2</button>
+                        <button type="button" onclick="addDigit(3)" name="3" value="3">3</button>
+                        <button type="button" onclick="addOperation('+')" name="+" class="operation"> + </button>
     
                         <button type="button" name="plus-minus">
                             <img src="./assets/plus-minus.svg" alt="botão mais ou menos">
                         </button>
-                        <button type="button" name="0">0</button>
+                        <button type="button" onclick="addDigit(0)" name="0">0</button>
                         <button type="button" name=",">,</button>
                         <button type="button" name="=" class="operation"> = </button>
                 </section>
