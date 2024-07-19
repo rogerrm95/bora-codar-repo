@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    
+    <title>Cartão de Embarque | #BoraCodar</title>
+</head>
+<body>
+    <div id="container"> 
+        <header>
+            <h2>Cartão de Embarque</h2>
+        </header>
+
+        <main id="ticket-container">
+            <section class="box flight-info">
+                <div class="flight-identification">
+                    <span>
+                        Voo </br>
+                        <strong>RS995</strong>
+                    </span>
+
+                    <span>
+                        Data </br>
+                        <strong>23/05/2023</strong>
+                    </span>
+                </div>
+
+                <div class="flight-airports">
+                    <div class="airport departure">
+                        <span>São Paulo, Brasil</span>
+                        <span>GRU</span>
+                        <span>17:00</span>
+                    </div>
+
+                    <div class="airport arrival">
+                        <span>São Francisco, EUA</span>
+                        <span>SFO</span>
+                        <span>04:48</span>
+                    </div>
+
+                    <img src="./assets/airplane.png" alt="Avião indo pra direita">
+                </div>
+            </section>
+
+            <section class="passager-info">
+                <span>
+                    Passageiro
+                    <br/>
+                    <strong>Rogério Marques</strong>
+                </span>
+
+                <span>
+                    Assento
+                    <br/>
+                   <strong>28A</strong>
+                </span>
+            </section>
+
+            <section class="boarding">
+                <div class="boarding-info">
+                    <div class="boarding-time">
+                        <span>Embarque</span>
+                        <strong>16:15</strong>
+                    </div>
+
+                    <div class="boarding-terminal">
+                        <span>Terminal</span>
+                        <strong>2</strong>
+                    </div>
+
+                    <div class="boarding-door">
+                        <span>Portão</span>
+                        <strong>15</strong>
+                    </div>
+                </div>
+
+                <div class="qr-code">
+                    <img src="./assets/qr-code.png" alt="QR - CODE">
+                    <span>Grupo de embarque: 3</span>
+                </div>
+            </section>
+
+            <p id="notice">
+                <strong>Atenção:</strong>
+                o portão fecha 16:45</p>
+        </main>
+
+        <footer>
+            Qualquer problema procure o balcão de
+            </br>
+            atendimento da sua companhia aérea
+        </footer>
+    </div>
+</body>
+    <script src="scripts.js"></script>  
+</html>

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; // 15px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
+}
+
+body {
+    background: linear-gradient(167.96deg, #8257E5 0%, #271A45 100%);
+    color: #000;
+}
+
+body * {
+    font-family: "Rubik", sans-serif;
+}
+
+h2 {
+    color: #FFF;
+    font-weight: 500;
+}
+
+footer {
+    text-align: center;
+    color: #FFF;
+    font-size: 0.875rem;
+    opacity: 0.65;
+    line-height: 24px;
+}
+
+#container {
+    height: 100vh;
+    width: 327px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+#ticket-container{
+    width: 100%;
+
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+/* INFORMAÇÃO DO VOÔ */
+.flight-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    gap: 1.5rem;
+    padding: 1.25rem 2rem;
+}
+
+.flight-identification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 0%;
+    width: 100%;
+}
+
+.flight-identification span {
+    font-size: 0.875rem;
+}
+
+.flight-identification span:nth-child(2) {
+    text-align: right;
+}
+
+.flight-identification span > strong {
+    font-weight: 500; 
+    font-size: 1rem;
+}
+
+.flight-airports {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 0%;
+    width: 100%;
+    position: relative;
+}
+
+.flight-airports img {
+    position: absolute;
+    
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.airport {
+    display: flex;
+    flex-direction: column;
+}
+
+.airport span:nth-child(1){
+    font-size: 0.875rem;
+    opacity:0.65;
+}
+
+.airport span:nth-child(2){
+    font-size: 2.5rem;
+    font-weight: 500;
+    opacity:0.88;
+}
+
+.airport + .arrival span{
+    text-align: right;
+}
+
+.airport + .arrival {
+    position: relative;
+}
+
+.airport + .arrival span:nth-child(3)::before {
+    position: absolute;
+    content: "+1";
+    font-size: 0.625rem;
+    right: -10px;
+    bottom: 10px
+}
+
+/* INFORMAÇÃO DO PASSAGEIRO */
+.passager-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 0%;
+    width: 100%;
+
+    padding: 1.25rem 2rem;
+
+    border-top: 1px dashed #ADADAD;
+    border-bottom: 1px dashed #ADADAD;
+
+    position: relative;
+}
+
+.passager-info span:nth-child(2) {
+    text-align: right;
+}
+
+.passager-info::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    left: -12px;
+    border-radius: 100%;
+
+    background: #5B3D9F; 
+}
+
+.passager-info::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: calc(100% - 12px);
+    left: calc(100% - 12px);
+    border-radius: 100%;
+
+    background: #5B3D9F; 
+}
+
+/* INFORMAÇÃO DO EMBARQUE */
+.boarding {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1.25rem 2rem;
+    position: relative;
+}
+
+.boarding::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: calc(100% - 12px);
+    left: calc(100% - 12px);
+    border-radius: 100%;
+
+    background: #5B3D9F; 
+}
+
+.boarding::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    left: -12px;
+    border-radius: 100%;
+
+    background: #5B3D9F; 
+}
+
+.boarding-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.qr-code img {
+    width: 140px;
+    height: 140px;
+}
+
+.qr-code span {
+    font-size: 0.875rem;
+}
+
+.boarding-time, .boarding-door, .boarding-terminal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.boarding-time span, .boarding-door span, .boarding-terminal span {
+    font-size: 0.875rem;
+    opacity: 0.65;
+}
+
+.boarding-time strong {
+    background: #633BBC;
+    border-radius: 8px;
+    padding: 4px 8px;
+    text-align: center;
+    color: #FFF;
+    font-weight: 400;
+}
+
+#notice {
+    opacity: 0.8;
+    text-align: center;
+    margin: 1.5rem 0;
+}
