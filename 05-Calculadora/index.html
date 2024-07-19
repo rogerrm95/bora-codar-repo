@@ -25,9 +25,9 @@
                 </section>
     
                 <section id="keyboard">
-                        <button type="button" name="CE">CE</button>
-                        <button type="button" name="C">C</button>
-                        <button type="button" onclick="addOperation()" name="%">%</button>
+                        <button type="button" onclick="cancelEntry()" name="CE">CE</button>
+                        <button type="button" onclick="clearDisplay()" name="C">C</button>
+                        <button type="button" onclick="calculatePercentual()" name="%">%</button>
                         <button type="button" onclick="addOperation('/')" name="/" class="operation">÷</button>
     
                         <button type="button" onclick="addDigit(7)" name="7" value="7">7</button>
@@ -45,12 +45,12 @@
                         <button type="button" onclick="addDigit(3)" name="3" value="3">3</button>
                         <button type="button" onclick="addOperation('+')" name="+" class="operation"> + </button>
     
-                        <button type="button" name="plus-minus">
+                        <button type="button" onclick="plusAndMinius()" name="plus-minus">
                             <img src="./assets/plus-minus.svg" alt="botão mais ou menos">
                         </button>
                         <button type="button" onclick="addDigit(0)" name="0">0</button>
-                        <button type="button" name=",">,</button>
-                        <button type="button" name="=" class="operation"> = </button>
+                        <button type="button" onclick="addDecimal()" name=",">,</button>
+                        <button type="button" onclick="calculateOperation()" name="=" class="operation"> = </button>
                 </section>
             </main>
         </div>
