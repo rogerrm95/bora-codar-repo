@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <title>Site de Carnaval | #BoraCodar</title>
+</head>
+<body>
+    <div id="container"> 
+        <div class="hero">
+            <header>
+                <span>find your block</span>
+
+                <h1 class="heading">Encontre os 
+                    <strong>melhores blocos</strong> de carnaval de 2024
+                </h1>
+            </header>
+
+            <form class="search-form">
+                <label class="input" for="location">
+                    <img src="./assets/icons/search.png" alt="Buscar"/>
+
+                    <input type="text" name="location" id="location" placeholder="Pesquise por nome" />
+                </label>
+
+                <button class="select" type="button" title="Selecionar uma cidade">
+                    <img src="./assets/icons/map-in.png" alt="Selecionar"/>
+
+                    <span id="selected-location">Selecione uma cidade</span>
+
+                    <img src="./assets/icons/chevron-down.png"/>
+
+                </button>
+                
+                <button type="submit" class="button btn-primary">
+                    Buscar agora
+                </button>
+            </form>
+        </div>
+
+        <div class="content">
+            <header>
+                <h2 class="heading">Blocos recomendados</h2>
+
+                <div class="filters">
+                    <button class="button btn-primary">
+                        Lista
+                    </button>
+
+                    <button class="button btn-secondary">
+                        Mapa
+                    </button>
+                </div>
+            </header>
+
+            <!-- TEMPORARIO - CONSULTA VIA JS -->
+            <ul class="list">
+                <li class="card">
+                    <img src="./assets/images/python-vovo.png" alt="O Python do vovô não sobe mais"/>
+
+                    <div class="card-content">
+                        <p class="title line-clamp-1">O Python do vovô não sobe mais</p>
+
+                        <p class="description line-clamp-3">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+    
+                        <div class="card-footer">
+                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
+                            <span>São Paulo - SP</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="card">
+                    <img src="./assets/images/null.png" alt="O Python do vovô não sobe mais"/>
+
+                    <div class="card-content">
+                        <p class="title line-clamp-1">
+                            Todo mundo null
+                        </p>
+
+                        <p class="description line-clamp-3">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+    
+                        <div class="card-footer">
+                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
+                            <span>Florianópolis - SC</span>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="card">
+                    <img src="./assets/images/exception.png" alt="O Python do vovô não sobe mais"/>
+
+                    <div class="card-content">
+                        <p class="title line-clamp-1">Hoje dou exception</p>
+
+                        <p class="description line-clamp-3">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+    
+                        <div class="card-footer">
+                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
+                            <span>Curitiba - PR</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+    <script src="scripts.js"></script>
+</html>
