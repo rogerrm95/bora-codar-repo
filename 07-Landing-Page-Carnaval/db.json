@@ -1,0 +1,75 @@
+{
+    "locations": [
+        {"name": "Curitiba - PR"},
+        {"name": "Florianópolis - SC"},
+        {"name": "Porto Alegre - RS"},
+        {"name": "Rio de Janeiro - RJ"},
+        {"name": "Salvador - BA"},
+        {"name": "São Paulo - SP"}
+    ],
+    "places": [
+        {
+            "id": 1,
+            "name": "O Python do vovô não sobe mais",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "São Paulo - SP",
+            "placeImageURL": "./assets/images/python-vovo.png"
+        },
+        {
+            "id": 2,
+            "name": "Todo mundo null",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "Florianópolis - SC",
+            "placeImageURL": "./assets/images/null.png"
+        },
+        {
+            "id": 3,
+            "name": "Hoje dou exception",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "Curitiba - PR",
+            "placeImageURL": "./assets/images/exception.png"
+        },
+        {
+            "id": 4,
+            "name": "Manda Node",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "Salvador - BA",
+            "placeImageURL": "./assets/images/node.png"
+        },
+        {
+            "id": 5,
+            "name": "Só no back-end",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "São Paulo - SP",
+            "placeImageURL": "./assets/images/back-end.png"
+        },
+        {
+            "id": 6,
+            "name": "Esse anel não é de Ruby",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "São Paulo - SP",
+            "placeImageURL": "./assets/images/ruby.png"
+        },
+        {
+            "id": 7,
+            "name": "Pimenta no C# dos outros é refresco",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "Rio de Janeiro - RJ",
+            "placeImageURL": "./assets/images/c-sharp.png"
+        },
+        {
+            "id": 8,
+            "name": "EnCACHE aqui",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "Porto Alegre - RS",
+            "placeImageURL": "./assets/images/cache.png"
+        },
+        {
+            "id": 9,
+            "name": "Não valho nada mas JAVA li",
+            "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
+            "location": "São Paulo - SP",
+            "placeImageURL": "./assets/images/java.png"
+        }
+    ]
+}

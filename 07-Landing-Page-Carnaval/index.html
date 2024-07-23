@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Site de Carnaval | #BoraCodar</title>
 </head>
 <body>
@@ -25,14 +26,17 @@
                     <input type="text" name="location" id="location" placeholder="Pesquise por nome" />
                 </label>
 
-                <button class="select" type="button" title="Selecionar uma cidade">
-                    <img src="./assets/icons/map-in.png" alt="Selecionar"/>
+                <div class="select-box">
+                    <button class="select" type="button" title="Selecionar uma cidade">
+                        <img src="./assets/icons/map-in.png" alt="Selecionar"/>
+    
+                        <span id="selected-location">Selecione uma cidade</span>
+    
+                        <img src="./assets/icons/chevron-down.png" alt="Abrir"/>
+                    </button>
 
-                    <span id="selected-location">Selecione uma cidade</span>
-
-                    <img src="./assets/icons/chevron-down.png"/>
-
-                </button>
+                    <ul class="options"></ul>
+                </div>
                 
                 <button type="submit" class="button btn-primary">
                     Buscar agora
@@ -40,7 +44,7 @@
             </form>
         </div>
 
-        <div class="content">
+        <div class="content" id="festival-places-content">
             <header>
                 <h2 class="heading">Blocos recomendados</h2>
 
@@ -54,62 +58,6 @@
                     </button>
                 </div>
             </header>
-
-            <!-- TEMPORARIO - CONSULTA VIA JS -->
-            <ul class="list">
-                <li class="card">
-                    <img src="./assets/images/python-vovo.png" alt="O Python do vovô não sobe mais"/>
-
-                    <div class="card-content">
-                        <p class="title line-clamp-1">O Python do vovô não sobe mais</p>
-
-                        <p class="description line-clamp-3">
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-    
-                        <div class="card-footer">
-                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
-                            <span>São Paulo - SP</span>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="card">
-                    <img src="./assets/images/null.png" alt="O Python do vovô não sobe mais"/>
-
-                    <div class="card-content">
-                        <p class="title line-clamp-1">
-                            Todo mundo null
-                        </p>
-
-                        <p class="description line-clamp-3">
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-    
-                        <div class="card-footer">
-                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
-                            <span>Florianópolis - SC</span>
-                        </div>
-                    </div>
-                </li>
-                
-                <li class="card">
-                    <img src="./assets/images/exception.png" alt="O Python do vovô não sobe mais"/>
-
-                    <div class="card-content">
-                        <p class="title line-clamp-1">Hoje dou exception</p>
-
-                        <p class="description line-clamp-3">
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-    
-                        <div class="card-footer">
-                            <img src="./assets/icons/map-in.png" alt="Localizar"/>
-                            <span>Curitiba - PR</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
 </body>
