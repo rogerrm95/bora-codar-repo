@@ -32,10 +32,15 @@ function populateFestivalPlaces(placesList){
             const cardItemLI = document.createElement('li')
             cardItemLI.classList.add('card')
 
+            const cardPhoto = document.createElement('div')
+            cardPhoto.classList.add('card-photo')
+
             const placeImageIMG = document.createElement('img')
             placeImageIMG.src = item.placeImageURL
             placeImageIMG.alt = item.name
-            cardItemLI.appendChild(placeImageIMG)
+            cardPhoto.appendChild(placeImageIMG)
+
+            cardItemLI.appendChild(cardPhoto)
 
             const cardContentDiv = document.createElement('div')
             cardContentDiv.classList.add('card-content')
