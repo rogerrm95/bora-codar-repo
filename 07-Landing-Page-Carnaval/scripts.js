@@ -1,3 +1,8 @@
+// FAKE API //
+const api = axios.create({
+    baseURL: 'http://127.0.0.1:3004/'
+})
+
 // CARD //
 const contentDiv = document.getElementById('festival-places-content')
 
@@ -7,49 +12,23 @@ const ulLocations = document.getElementsByClassName('options')[0]
 const seletedOptionSpan = document.getElementById('selected-location')
 const chevronIcon = selectLocationInput.getElementsByTagName('img')[1]
 
-const api = axios.create({
-    baseURL: 'http://127.0.0.1:3004/'
-})
+// SEARCH FORM //
+const btnSearchFestivalPlaces = document.getElementById("search-festival-places")
+const festivalNameInput = document.getElementById('location')
 
 const locationList = []
+const festivalPlacesList = []
 
-window.addEventListener('load', async () => {
-    const data = await api.get('/locations').then(response => response.data)
-    const locationList = data.map(item => {
-        return item.name
-    })
-
-
-    for (var i= 0; i<locationList.length; i++) {
-        const li = document.createElement('li')
-
-        const optionValue = locationList[i]
-
-        li.innerHTML = optionValue
-        li.title = optionValue
-        li.value = i
-
-        li.classList.add('option-item')
-        li.addEventListener('click', () => {
-            seletedOptionSpan.innerHTML=optionValue
-            ulLocations.style.display = 'none'
-        })
-        
-        ulLocations.appendChild(li)
-    }
-})
-
-window.addEventListener('load', async () => {
-    const data = await api.get('/places').then(response => response.data)
-
-    if(data.length > 0) {
+// FUNÇÃO - ADICIONAR OS CARDS (FESTIVAIS) EM TELA //
+function populateFestivalPlaces(placesList){
+    if(placesList.length > 0) {
         const ulCards = document.createElement('ul')
         ulCards.classList.add("list")
         ulCards.id = "card-list"
     
         contentDiv.appendChild(ulCards)
         
-        data.map(item => {
+        placesList.map(item => {
             const cardItemLI = document.createElement('li')
             cardItemLI.classList.add('card')
 
@@ -63,6 +42,7 @@ window.addEventListener('load', async () => {
 
             const festivalNameP = document.createElement('p')
             festivalNameP.classList.add('title', 'line-clamp-1')
+            festivalNameP.innerHTML = item.name
             cardContentDiv.appendChild(festivalNameP)
 
             const festivalDescriptionP = document.createElement('p')
@@ -98,8 +78,68 @@ window.addEventListener('load', async () => {
         emptyResultsDiv.appendChild(messageNoResultsP)
         contentDiv.appendChild(emptyResultsDiv)
     }
+}
+
+// EVENTO - CARREGAR AS OPÇÕES DE LOCALIDADE E ADICIONAR AO SELECT //
+window.addEventListener('load', async () => {
+    const data = await api.get('/locations').then(response => response.data)
+    const locationList = data.map(item => {
+        return item.name
+    })
+
+    for (var i= 0; i<locationList.length; i++) {
+        const li = document.createElement('li')
+
+        const optionValue = locationList[i]
+
+        li.innerHTML = optionValue
+        li.title = optionValue
+        li.value = i
+
+        li.classList.add('option-item')
+        li.addEventListener('click', () => {
+            seletedOptionSpan.innerHTML=optionValue
+            ulLocations.style.display = 'none'
+        })
+        
+        ulLocations.appendChild(li)
+    }
 })
 
+// EVENTO - CARREGAR OS DADOS DA API //
+window.addEventListener('load', async () => {
+    const data = await api.get('/places').then(response => response.data)
+    festivalPlacesList.push(...data)
+
+    populateFestivalPlaces(festivalPlacesList)
+})
+
+// GET - FESTIVAL PLACES - SEARCH FORM //
+btnSearchFestivalPlaces.addEventListener("click", (event) => {
+    event.preventDefault()
+
+    const seletedOption = seletedOptionSpan.innerHTML
+    const festivalName = festivalNameInput.value
+
+    let newFestivalPlaces = []
+
+    if(seletedOption) {
+        const filteredList = festivalPlacesList.filter(item => item.location === seletedOption)
+        newFestivalPlaces = [...filteredList]
+    }
+
+    if(festivalName) {
+        const filteredList = newFestivalPlaces.filter(item => item.name.includes(festivalName))
+        newFestivalPlaces = [...filteredList]
+    }
+    
+    const child = contentDiv.children
+    child[1].remove()
+
+    populateFestivalPlaces(newFestivalPlaces)
+})
+
+// SELECT EVENT'S //
 selectLocationInput.addEventListener('click', () => {
     const isSelectOpen = ulLocations.computedStyleMap().get('display')
 
