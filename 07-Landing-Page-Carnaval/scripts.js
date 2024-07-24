@@ -1,3 +1,10 @@
+// SCROLL REVEAL CONFIG //
+const scrollRevealConfig = {
+    interval: 100,
+    distance: '100%',
+    duration: 1000
+}
+
 // FAKE API //
 const api = axios.create({
     baseURL: 'http://127.0.0.1:3004/'
@@ -72,6 +79,8 @@ function populateFestivalPlaces(placesList){
             cardItemLI.appendChild(cardContentDiv)
 
             ulCards.appendChild(cardItemLI)
+
+            ScrollReveal().reveal('.card', scrollRevealConfig)
         })
     } else {
         const emptyResultsDiv = document.createElement('div')
@@ -117,6 +126,11 @@ window.addEventListener('load', async () => {
     festivalPlacesList.push(...data)
 
     populateFestivalPlaces(festivalPlacesList)
+})
+
+// EVENTO - SCROLL REVEAL AO CARREGAR PÁGINA //
+window.addEventListener('load', () => {
+    ScrollReveal().reveal('#container')
 })
 
 // GET - FESTIVAL PLACES - SEARCH FORM //
