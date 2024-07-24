@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Dashboard de Vendas | #BoraCodar</title>
+</head>
+<body>
+    <div id="container"> 
+        <div id="metrics-top">
+            <!-- CARD 1 - Média de Avaliação-->
+            <div class="card" id="card-rating-average">
+                <h1 class="heading card-title">NPS Geral</h1>
+
+                <div class="rating-emoji">
+                    <img src="./assets/icons/happy.svg" alt="Emoji Feliz"/>
+                    <p>Excelente!</p>
+                </div>
+
+                <span class="card-legend">NPS Score 75</span>
+            </div>
+
+            <!-- CARD 2 - Vendas Fechadas -->
+            <div class="card" id="card-closed-sales">
+                <h1 class="heading card-title">Vendas fechadas</h1>
+
+                <div id="chart-sales" class="progress-circle-chart">
+                    <div class="progress-circle-chart-box">
+                        <svg>
+                            <circle r="90" cx="70" cy="70"></circle>
+                            <circle r="90" cx="70" cy="70"></circle>
+                        </svg>
+                    </div>
+
+                    <div id="sales-percent" class="chart-percent">
+                        <p id="sales-percent-value">50%</p>
+                        <p>alcançada</p>
+                    </div>
+                </div>
+
+                <footer class="card-footer sales-footer">
+                    <span class="card-legend">Esperado 100</span>
+                    <span class="card-legend">Alcançado 50</span>
+                </footer>
+            </div>
+            
+            <!-- CARD 3 - Meta Mensal -->
+            <div class="card" id="card-monthly-goal">
+                <h1 class="heading card-title">Meta mensal</h1>
+
+                <div id="chart-monthly-goal" class="progress-circle-chart">
+                    <div class="progress-circle-chart-box">
+                        <svg>
+                            <circle r="90" cx="70" cy="70"></circle>
+                            <circle r="90" cx="70" cy="70"></circle>
+                        </svg>
+                    </div>
+
+                    <div id="sales-percent" class="chart-percent">
+                        <p id="sales-percent-value">90%</p>
+                        <p>alcançada</p>
+                    </div>
+                </div>
+
+                <footer class="card-footer sales-footer">
+                    <span class="card-legend">Esperado R$ 70K</span>
+                    <span class="card-legend">Alcançado R$ 63K</span>
+                </footer>
+            </div>
+        </div>
+
+        <div id="metrics-bottom">
+            <div class="card" id="card-sales-on-week">
+                <h1 class="heading card-title">Vendas por dia da semana</h1>
+
+                <main>
+                    <div class="sales-info">
+                        <div class="profit">
+                            <p>
+                                <img src="./assets/icons/arrow-up-green.png" alt="Lucro">
+                                Dia com mais vendas</p>
+                            <span>Quarta-Feira</span>
+                        </div>
+    
+                        <div class="deficit">
+                            <p>
+                                <img src="./assets/icons/arrow-down-red.png" alt="Déficit">
+                                Dia com menos vendas</p>
+                            <span>Domingo</span>
+                        </div>
+                    </div>
+
+                    <div class="chart" id="chart-sales-on-week">
+
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="scripts.js"></script>
+</html>

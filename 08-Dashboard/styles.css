@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 75%; // 12px
+    }
+}
+
+:root {
+    --purple-900: #292738;
+    --purple-700: #363447;
+    --purple-500: #7367F0;
+    --purple-100: #CE9FFC;
+
+    --orange-500: #DF9780;
+    --green-500: #81FBB8;
+    --red-500: #EA5455;
+    
+    --gray-500: #4A4556;
+    
+    --text: #FFF;
+    --heading: #FFF;
+}
+
+body {
+    background-color: var(--purple-900);
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+}
+
+/* CLASSES */
+.bg-orange-red {
+    background: linear-gradient(121.94deg, #DF9780 15.98%, #A66DE9 82.85%);
+}
+
+.bg-pink-purple {
+    background: linear-gradient(121.94deg, #CE9FFC 15.98%, #7367F0 82.85%);
+}
+
+.bg-light-green {
+    background: linear-gradient(180deg, #90F7EC 0%, #32CCBC 100%);
+}
+
+.heading {
+    color: var(--heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.card {
+    background-color: var(--purple-700);
+    padding: 1.75rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.rating-emoji {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.rating-emoji p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--green-500);
+    text-align: center;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.card-footer span {
+    position: relative;
+}
+
+.card-footer span::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    
+    border-radius: 50%;
+    position: absolute;
+
+    left: -10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-legend {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+}
+
+/* GRÁFICO CIRCULAR - LEGENDA - VENDAS ALCANÇADAS */
+.sales-footer span:nth-child(1)::before {
+    background-color: var(--gray-500);
+}
+
+.sales-footer span:nth-child(2)::before {
+    background-color: var(--purple-500);
+}
+
+/* GRÁFICO CIRCULAR - LEGENDA - META MENSAL */
+.monthly-goal-footer span:nth-child(1)::before {
+    background-color: var(--gray-500);
+}
+
+.monthly-goal-footer span:nth-child(2)::before {
+    background-color: var(--orange-500);
+}
+
+.progress-circle-chart-box {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-circle-chart-box svg {
+    width: 197px;
+    height: 197px;
+    position: relative;
+}
+
+.progress-circle-chart-box circle {
+    width: 197px;
+    height: 197px;
+    fill: none;
+
+    stroke: var(--gray-500);
+    stroke-width: 15px;
+    stroke-dasharray: 570;
+
+    background-color: var(--purple-700);
+    transform: translate(30px, 30px);
+}
+
+.progress-circle-chart-box circle:nth-child(2) {
+    stroke-dashoffset: 300;
+    stroke: var(--purple-500);
+}
+
+.chart-percent {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chart-percent p:nth-child(1) {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.chart-percent p:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 160%;
+}
+
+.chart-percent span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.sales-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.profit, .deficit {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sales-info p {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sales-info span {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1.75rem;
+}
+
+/* ID */
+#container {
+    heading: 100vh;
+    width: 100%;
+    padding: 1.5rem;
+    overflow: hidden;  
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+#metrics-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#card-monthly-goal, #card-closed-sales, #card-rating-average {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    height: 300px;
+}
+
+#chart-sales {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+#chart-monthly-goal {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+#metrics-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#metrics-bottom .card-title{
+    text-align: left;
+}
+
+/* CARD - VENDAS NA SEMANA */
+#card-sales-on-week {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+
+    padding: 3rem 1.75rem;
+}
+
+/* SMALL DEVICES */
+@media(max-width: 400px) {}
+
+/* TABLET */
+@media(min-width: 768px) {
+    .card {
+        height: 379px;
+    }
+
+    .sales-info p {
+        font-size: 0.875rem;
+    }
+
+    .sales-info span {
+        font-size: 1.5rem;
+    }
+
+    #metrics-top {
+        flex-direction: row;
+    }
+
+
+}
+
+/* LAPTOP OR + */
+@media(min-width: 962px) {
+    .sales-info {
+        justify-content: start;
+        align-items: normal;
+        text-align: left;
+    }
+
+    #card-sales-on-week {
+        height: 314px;
+    }
+}
