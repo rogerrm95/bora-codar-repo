@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Dashboard de Vendas | #BoraCodar</title>
@@ -18,11 +17,11 @@
                 <h1 class="heading card-title">NPS Geral</h1>
 
                 <div class="rating-emoji">
-                    <img src="./assets/icons/happy.svg" alt="Emoji Feliz"/>
-                    <p>Excelente!</p>
+                    <img src="./assets/icons/happy.svg"/>
+                    <p id="rating-text">0</p>
                 </div>
 
-                <span class="card-legend">NPS Score 75</span>
+                <span class="card-legend" id="average-rating">-</span>
             </div>
 
             <!-- CARD 2 - Vendas Fechadas -->
@@ -38,14 +37,14 @@
                     </div>
 
                     <div id="sales-percent" class="chart-percent">
-                        <p id="sales-percent-value">50%</p>
+                        <p id="sales-percent-value">0%</p>
                         <p>alcançada</p>
                     </div>
                 </div>
 
                 <footer class="card-footer sales-footer">
-                    <span class="card-legend">Esperado 100</span>
-                    <span class="card-legend">Alcançado 50</span>
+                    <span class="card-legend" id="expected-sales">-</span>
+                    <span class="card-legend" id="achieved-sales">-</span>
                 </footer>
             </div>
             
@@ -62,18 +61,19 @@
                     </div>
 
                     <div id="sales-percent" class="chart-percent">
-                        <p id="sales-percent-value">90%</p>
+                        <p id="month-sales-percent-value">0%</p>
                         <p>alcançada</p>
                     </div>
                 </div>
 
                 <footer class="card-footer sales-footer">
-                    <span class="card-legend">Esperado R$ 70K</span>
-                    <span class="card-legend">Alcançado R$ 63K</span>
+                    <span class="card-legend" id="expected-month-sales">-</span>
+                    <span class="card-legend" id="achieved-month-sales">-</span>
                 </footer>
             </div>
         </div>
 
+        <!-- CARD - VENDAS NA SEMANA (GRÁFICO DE BARRAS) -->
         <div id="metrics-bottom">
             <div class="card" id="card-sales-on-week">
                 <h1 class="heading card-title">Vendas por dia da semana</h1>
@@ -84,19 +84,25 @@
                             <p>
                                 <img src="./assets/icons/arrow-up-green.png" alt="Lucro">
                                 Dia com mais vendas</p>
-                            <span>Quarta-Feira</span>
+                            <span>
+                                -
+                            </span>
                         </div>
+
+                        <hr />
     
                         <div class="deficit">
                             <p>
                                 <img src="./assets/icons/arrow-down-red.png" alt="Déficit">
                                 Dia com menos vendas</p>
-                            <span>Domingo</span>
+                            <span>
+                                -
+                            </span>
                         </div>
                     </div>
 
                     <div class="chart" id="chart-sales-on-week">
-
+                        <canvas id="chart-sales-on-week-box" height="186"></canvas>
                     </div>
                 </main>
             </div>

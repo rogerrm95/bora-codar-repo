@@ -78,6 +78,14 @@ body * {
     -webkit-line-clamp: 3;
 }
 
+.success {
+    color: var(--green-500);
+}
+
+.danger {
+    color: var(--red-500);
+}
+
 .card {
     background-color: var(--purple-700);
     padding: 1.75rem 3rem;
@@ -103,7 +111,6 @@ body * {
 .rating-emoji p {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--green-500);
     text-align: center;
 }
 
@@ -132,30 +139,32 @@ body * {
 }
 
 .card-legend {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     font-weight: 500;
     color: var(--text);
     text-align: center;
 }
 
 /* GRÁFICO CIRCULAR - LEGENDA - VENDAS ALCANÇADAS */
-.sales-footer span:nth-child(1)::before {
+#expected-sales::before {
     background-color: var(--gray-500);
 }
 
-.sales-footer span:nth-child(2)::before {
+#achieved-sales::before {
     background-color: var(--purple-500);
 }
 
 /* GRÁFICO CIRCULAR - LEGENDA - META MENSAL */
-.monthly-goal-footer span:nth-child(1)::before {
+#expected-month-sales::before {
     background-color: var(--gray-500);
 }
 
-.monthly-goal-footer span:nth-child(2)::before {
+#achieved-month-sales::before {
     background-color: var(--orange-500);
 }
 
+
+/* GRÁFICO CIRCULAR - BARRA DE PROGRESSO */
 .progress-circle-chart-box {
     position: absolute;
 
@@ -184,8 +193,15 @@ body * {
 }
 
 .progress-circle-chart-box circle:nth-child(2) {
-    stroke-dashoffset: 300;
+    stroke-dashoffset: 570;
+}
+
+#chart-sales circle:nth-child(2) {
     stroke: var(--purple-500);
+}
+
+#chart-monthly-goal circle:nth-child(2){
+    stroke: var(--orange-500);
 }
 
 .chart-percent {
@@ -246,6 +262,11 @@ body * {
     font-size: 1.75rem;
 }
 
+.sales-info hr {
+    width: 100%;
+    border: 1px solid var(--gray-500);
+}
+
 /* ID */
 #container {
     heading: 100vh;
@@ -270,8 +291,9 @@ body * {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 2rem;
-    height: 300px;
+    height: 385px;
 }
 
 #chart-sales {
@@ -310,10 +332,19 @@ body * {
 #card-sales-on-week {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     gap: 2rem;
     height: auto;
+}
 
-    padding: 3rem 1.75rem;
+#card-sales-on-week main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
 }
 
 /* SMALL DEVICES */
@@ -321,8 +352,19 @@ body * {
 
 /* TABLET */
 @media(min-width: 768px) {
+    .sales-info {
+        justify-content: start;
+        align-items: normal;
+        text-align: left;
+        gap: 1rem;
+        width: 469px;
+    }
     .card {
         height: 379px;
+    }
+
+    .card-legend {
+        font-size: 0.875rem;
     }
 
     .sales-info p {
@@ -336,19 +378,32 @@ body * {
     #metrics-top {
         flex-direction: row;
     }
-
-
 }
 
 /* LAPTOP OR + */
 @media(min-width: 962px) {
-    .sales-info {
-        justify-content: start;
-        align-items: normal;
-        text-align: left;
+
+    .chart {
+        width: 100%
     }
 
     #card-sales-on-week {
-        height: 314px;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #card-sales-on-week main {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    #chart-sales-on-week-box {
+        display: flex;
+        align-items: center;
+        width: 100%;
     }
 }
