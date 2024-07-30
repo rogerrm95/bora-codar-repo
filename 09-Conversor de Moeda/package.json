@@ -1,0 +1,16 @@
+{
+  "name": "09-conversor-de-moedas",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Site - Conversor de Moedas",
+  "main": "scripts.js",
+  "devDependencies": {
+    "axios": "^1.7.2",
+    "json-server": "^1.0.0-beta.1"
+  },
+  "scripts": {
+    "db": "json-server --watch db.json --port 3004"
+  },
+  "author": "Roger Marques",
+  "license": "ISC"
+}

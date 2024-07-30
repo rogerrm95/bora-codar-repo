@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 87.5%; // 14px
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 75%; // 12px
+    }
+}
+
+:root {
+    --bg-light: #F8FAFC;
+    --bg-card: #FFF;
+
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+
+    --highlight: #7C3AED;
+    --border: #94A3B8;
+    --hover: #EDE9FE;
+}
+
+body {
+    background-color: var(--bg-light);
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.heading {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.card { 
+    width: 100%;
+    min-width: 320px;
+    padding: 1rem;
+
+    background-color: var(--bg-card);
+    border-radius: 1rem;
+    box-shadow: 0px 4px 32px rgba(15, 23, 42, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+    width: 100%;
+}
+
+.separator {
+    height: 20px;
+    width: 1px;
+    background-color: var(--border);
+}
+
+.currency-input-box {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+
+    border: solid 1px var(--border);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.currency-input-box input {
+    border: none;
+    outline: none;
+    padding: 0.75rem;
+    width: 100%;
+}
+.currency-input-box:focus-within {
+    outline: solid 1px var(--highlight);
+}
+
+/* SELECT - COUNTRY */
+.select-country {
+    width: 100%;
+    padding: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: space-between;
+
+    cursor: pointer;
+    position: relative;
+}
+
+.select-country img {
+    width: 24px;
+    height: 24px;
+}
+
+.select-country img:last-child {
+    margin-left: auto;
+}
+
+.select-country button {
+    all: unset;
+    margin-right: auto;
+
+    flex: 1 1 0%;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.select-options {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    left: 0;
+    top: 48px;
+    width: 100%;
+    border-radius: 0.5rem;
+
+    background: var(--bg-light);
+    box-shadow: 0px 4px 16px rgba(15, 23, 42, 0.15);
+
+    overflow-y: auto;
+    max-height: 200px;
+    z-index: 1;
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+       
+    animation: fadeIn 0.3s;
+}
+
+.option-item {
+    padding: 1rem 0.75rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    transition: all 0.3s;
+}
+
+.option-item:hover {
+    background-color: var(--hover);
+    opacity: 0.9;
+    font-weight: 800;
+}
+
+.icon-button {
+    all: unset;
+    cursor: pointer;
+}
+
+.period-button {
+    all: unset;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.period-button[data-selected='true'] {
+    color: white;
+    background-color: var(--highlight);
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+}
+
+/* ID */
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+
+    padding: 1rem;
+}
+
+#filters-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0.5rem 0 2rem;
+}
+
+/* SMALL DEVICES */
+@media(max-width: 400px) {}
+
+/* TABLET */
+@media(min-width: 768px) {
+    #container {
+        max-width: 800px;
+        gap: 4rem;
+    }
+}
+
+/* LAPTOP OR + */
+@media(min-width: 962px) {
+    .card form {
+        flex-direction: row;
+    }
+}

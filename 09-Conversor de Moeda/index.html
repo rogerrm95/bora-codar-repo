@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title> Conversor de Moedas | #BoraCodar</title>
+</head>
+<body>
+    <div id="container"> 
+        <div class="card">
+            <h2 class="heading">Conversor de moedas</h2>
+
+            <form>
+                <!-- INPUT - SELECIONAR MOEDA - ORIGEM -->
+                <div id="currency-origin" class="currency-input-box">
+                    <label for="currency-origin-input">$</label>
+                    
+                    <input type="number" name="currency" id="currency-origin-input">
+                    
+                    <hr class="separator"/>
+
+                    <div id="select-origin-currency-country" class="select-country">
+                        <button title="Selecionar um páis" type="button">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="USA">
+                            <span>USD</span>
+                            <img src="./assets/chevron-down.png" alt="">
+                        </button>
+
+                        <ul class="select-options"></ul>
+                    </div>
+                </div>
+
+                <button title="Inverter" class="icon-button">
+                    <img src="./assets/arrows-exchange.png" alt="Inverter">
+                </button>
+                
+                <!-- INPUT - SELECIONAR MOEDA - DESTINO -->
+                <div id="currency-destiny" class="currency-input-box">
+                    <label for="currency-destiny-input">$</label>
+                    
+                    <input type="number" name="currency" id="currency-destiny-input">
+                    
+                    <hr class="separator"/>
+
+                    <div id="select-origin-currency-country" class="select-country">
+                        <button title="Selecionar um páis" type="button">
+                            <img src="./assets/bra.png" alt="BRL">
+                            <span>BRL</span>
+                            <img src="./assets/chevron-down.png" alt="">
+                        </button>
+
+                        <ul class="select-options"></ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 class="heading">Taxa de câmbio</h2>
+
+            <div id="exchange-rate-container">
+                <canvas id="chart-exchange-rate"></canvas>
+            </div>
+
+            <div id="filters-buttons">
+                <button class="period-button">1D</button>
+                <button class="period-button">5D</button>
+                <button class="period-button" data-selected="true">1M</button>
+                <button class="period-button">1A</button>
+                <button class="period-button">5A</button>
+                <button class="period-button">Máx</button>
+            </div>
+        </div>
+    </div>
+</body>
+    <script src="scripts.js"></script>
+</html>

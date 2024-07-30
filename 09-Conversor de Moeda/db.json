@@ -1,0 +1,84 @@
+{
+    "countries": [
+        {
+            "id": 1,
+            "name": "Estados Unidos",
+            "abbrev": "USA",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/us.svg",
+            "currency": "USD",
+            "currency_name": "Dólar Americano"
+        },
+        {
+            "id": 2,
+            "name": "Brasil",
+            "abbrev": "BRA",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/br.svg",
+            "currency": "BRL",
+            "currency_name": "Real"
+        },
+        {
+            "id": 3,
+            "name": "União Européia",
+            "abbrev": "UE",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/eu.svg",
+            "currency": "EUR",
+            "currency_name": "Euro"
+        },
+        {
+            "id": 4,
+            "name": "Argentina",
+            "abbrev": "ARG",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/ar.svg",
+            "currency": "ARS",
+            "currency_name": "Peso Argentino"
+        },
+        {
+            "id": 5,
+            "name": "China",
+            "abbrev": "CHN",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/cn.svg",
+            "currency": "CNY",
+            "currency_name": "Iuane Chinês"
+        },
+        {
+            "id": 6,
+            "name": "Japão",
+            "abbrev": "JAP",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/jp.svg",
+            "currency": "JPY",
+            "currency_name": "Iene Japonês"
+        },
+        {
+            "id": 7,
+            "name": "Rússia",
+            "abbrev": "RUS",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/ru.svg",
+            "currency": "RUB",
+            "currency_name": "Rublo Russo"
+        },
+        {
+            "id": 8,
+            "name": "Austrália",
+            "abbrev": "AUS",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/au.svg",
+            "currency": "AUD",
+            "currency_name": "Dólar Australiano"
+        },
+        {
+            "id": 9,
+            "name": "Suíça",
+            "abbrev": "SWZ",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/ch.svg",
+            "currency": "CHF",
+            "currency_name": "Franco Suiço"
+        },
+        {
+            "id": 10,
+            "name": "Canadá",
+            "abbrev": "CND",
+            "flag_url": "https://hatscripts.github.io/circle-flags/flags/ca.svg",
+            "currency": "CAD",
+            "currency_name": "Dolar Canadense"
+        }
+    ]
+}
