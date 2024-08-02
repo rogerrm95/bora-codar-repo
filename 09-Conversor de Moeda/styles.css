@@ -79,6 +79,19 @@ input[type=number] {
     gap: 1.5rem;
 }
 
+.card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card header span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--highlight);
+    user-select: none;
+}
+
 .card form {
     display: flex;
     flex-direction: column;
@@ -238,6 +251,10 @@ input[type=number] {
     margin-top: 1.5rem;
 }
 
+input[readonly] {
+    cursor: not-allowed;
+}
+
 /* SMALL DEVICES */
 @media(max-width: 400px) {}
 
@@ -246,6 +263,10 @@ input[type=number] {
     #container {
         max-width: 800px;
         gap: 4rem;
+    }
+
+    .card header span {
+        font-size: 0.75rem;
     }
 }
 

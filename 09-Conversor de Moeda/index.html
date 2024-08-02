@@ -12,7 +12,10 @@
 <body>
     <div id="container"> 
         <div class="card">
-            <h2 class="heading">Conversor de moedas</h2>
+            <header>
+                <h2 class="heading">Conversor de moedas</h2>
+                <span id="exchange-rate-value"></span>
+            </header>
 
             <form>
                 <!-- INPUT - SELECIONAR MOEDA - ORIGEM -->
@@ -40,7 +43,7 @@
                 <div id="currency-destiny" class="currency-input-box">
                     <label for="currency-destiny-input">$</label>
                     
-                    <input type="number" name="currency" id="currency-destiny-input">
+                    <input type="number" name="currency" id="currency-destiny-input" readonly>
                     
                     <hr class="separator"/>
 
@@ -73,4 +76,5 @@
 </body>
     <script src="scripts.js"></script>
     <script src="/components/select.js"></script>
+    <script src="/components/input.js"></script>
 </html>

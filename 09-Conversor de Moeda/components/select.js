@@ -42,17 +42,18 @@ function populateSelectCountry(countries, element) {
     return ul
 }
 
+// FUNÇÃO - INVERTE AS OPÇÕES DE MOEDA DOS SELECTS //
 function revertOptions(){
     const countryDestinyFlag = selectCountryDestiny.getElementsByTagName('img')[0]
     const countryDestinyCurrency = selectCountryDestiny.getElementsByTagName('span')[0]
-
+    
     const countryOriginFlag = selectCountryOrigin.getElementsByTagName('img')[0]
     const countryOriginCurrency = selectCountryOrigin.getElementsByTagName('span')[0]
 
     const selectsContent = {
         origin: {
             flag: countryOriginFlag.src,
-            currency: countryOriginCurrency.textContent
+            currency: countryOriginCurrency.textContent,
         },
         destiny: {
             flag: countryDestinyFlag.src,
@@ -65,6 +66,8 @@ function revertOptions(){
 
     countryDestinyFlag.src = selectsContent.origin.flag
     countryDestinyCurrency.innerHTML = selectsContent.origin.currency
+
+    resetFields()
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -87,6 +90,8 @@ selectCountryOrigin.addEventListener('click', () => {
         ul.style.display = 'none'
         chevronSelectCountryOrigin.style.transition = 'all 0.3s'
         chevronSelectCountryOrigin.style.transform = 'rotate(0)'
+
+        resetFields()
     } else {
         ul.style.display = 'flex'
         chevronSelectCountryOrigin.style.transition = 'all 0.3s'
@@ -95,6 +100,7 @@ selectCountryOrigin.addEventListener('click', () => {
         selectCountryDestiny.getElementsByTagName('ul')[0].style.display = 'none'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
         chevronSelectCountryDestiny.style.transform = 'rotate(0)'
+
     }
 })
 
@@ -140,6 +146,8 @@ selectCountryDestiny.addEventListener('click', () => {
         ul.style.display = 'none'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
         chevronSelectCountryDestiny.style.transform = 'rotate(0)'
+        
+        resetFields()
     } else {
         ul.style.display = 'flex'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
@@ -173,6 +181,7 @@ selectCountryDestiny.getElementsByTagName('button')[0].addEventListener('blur', 
     event.stopPropagation()
 })
 
+// BOTÃO - INVERTER OPÇÕES //
 revertOptionsButton.addEventListener('click', (event) => {
     event.preventDefault()
     revertOptions()
