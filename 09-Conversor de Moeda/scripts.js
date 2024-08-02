@@ -32,51 +32,30 @@ const chartConfig = {
         legend: {
           display: false
         }
-    }
+    },
+    maintainAspectRatio: false,
 }
 
-// AXIOS CONFIR //
 // FAKE API //
 const api = axios.create({
     baseURL: 'http://127.0.0.1:3004/'
 })
 
-// Temporario //
-const data = [ 5.0, 5.1, 5.15, 5.22, 5.16, 5.17, 5.2, 5.22, 5.24, 5.25, 5.1]
-
 // ELEMENTOS //
 const chartExchangeRateCanva = document.getElementById('chart-exchange-rate').getContext("2d")
+const countryOriginSelect = document.getElementById('select-origin-currency-country')
+const countryDestinySelect = document.getElementById('select-destiny-currency-country')
+const filterButton = document.querySelectorAll('.period-button')
 
-const selectsCountry = document.getElementsByClassName('select-country')
-const selectCountryOrigin = document.getElementById('select-origin-currency-country')
-const selectCountryDestiny = document.getElementById('select-destiny-currency-country')
+// FUNÇÃO - CARREGAR OS DADOS DA API AWESOME (COTAÇÃO) E ALIMENTAR O GRÁFICO //
+async function loadDailyExchangeRate(days){
+    const currencyOrigin = countryOriginSelect.getElementsByTagName('span')[0].textContent
+    const currencyDestiny = countryDestinySelect.getElementsByTagName('span')[0].textContent
 
-function populateSelectCountry(countries) {
-    const ul = document.createElement('ul')
-    ul.classList.add('select-options')
+    const data = await api.get(`https://economia.awesomeapi.com.br/json/daily/${currencyOrigin}-${currencyDestiny}/${days}`).then(response => response.data)
+   
+    const bidList = data.map(item => item.bid)
 
-    for (country of countries) {
-        const countryLi = document.createElement('li')
-        countryLi.classList.add('option-item')
-        countryLi.title = country.name
-        countryLi.id = country.id
-
-        const flagImg = document.createElement('img')
-        flagImg.src = country.flag_url
-
-        const currencyNameSpan = document.createElement('span')
-        currencyNameSpan.innerHTML = country.currency
-
-        countryLi.appendChild(flagImg)
-        countryLi.appendChild(currencyNameSpan)
-
-        ul.appendChild(countryLi)
-    }
-
-    return ul
-}
-
-window.addEventListener('DOMContentLoaded', () => {
     const gradient = chartExchangeRateCanva.createLinearGradient(0, 0, 0, 400);
     gradient.addColorStop(0, "rgba(124, 58, 237, 0.5)");   
     gradient.addColorStop(0.5, "rgba(124, 58, 237, 0.2)");
@@ -89,26 +68,67 @@ window.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Cotação',
                 fill: true,
-                data: data,
+                data: bidList,
                 backgroundColor: gradient,
                 borderColor: '#7C3AED',
                 borderWidth: 1,
             }]
         },
         options: chartConfig
-    })    
-})
+    })  
+}
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const countries = await api.get('/countries').then(response => response.data)
+// FUNÇÃO - APLICAR A CLASSE SELECTED NO BOTÃO E REMOVER NOS DEMAIS //
+function toggleButtonActive(buttonTarget, buttonsList){
+    buttonsList.forEach(button => {
+        button.classList.remove('selected')
+    })
+    
+    buttonTarget.classList.add('selected')
+}
 
-    for (select of selectsCountry) {
-        const ul = populateSelectCountry(countries)
-
-        select.appendChild(ul)
+// FILTRAR POR 1 DIA //
+const btnLoadExchange1Day = document.getElementById('btn-exchange-1-day')
+btnLoadExchange1Day.addEventListener('click', async () => {
+    const chart = Chart.getChart('chart-exchange-rate')
+    if(chart !== undefined) {
+        chart.destroy()
     }
+    await loadDailyExchangeRate(2).then(() => {
+        toggleButtonActive(btnLoadExchange1Day, filterButton)
+    });
 })
 
-// Continuar ...//
-// Abrir e fechar os SELECTS //
-// Capturar a seleção do usuário //
+// FILTRAR POR 5 DIAS //
+const btnLoadExchange5Day = document.getElementById('btn-exchange-5-day')
+btnLoadExchange5Day.addEventListener('click', async () => {
+    const chart = Chart.getChart('chart-exchange-rate')
+    if(chart !== undefined) {
+        chart.destroy()
+    }
+    await loadDailyExchangeRate(5).then(() => toggleButtonActive(btnLoadExchange5Day, filterButton))
+})
+
+// FILTRAR POR 30 DIAS //
+const btnLoadExchange30Day = document.getElementById('btn-exchange-30-day')
+btnLoadExchange30Day.addEventListener('click', async () => {
+    const chart = Chart.getChart('chart-exchange-rate')
+    if(chart !== undefined) {
+        chart.destroy()
+    }
+    await loadDailyExchangeRate(30).then(() => toggleButtonActive(btnLoadExchange30Day, filterButton))
+})
+
+// FILTRAR POR 1 ANO //
+const btnLoadExchange1Year = document.getElementById('btn-exchange-1-year')
+btnLoadExchange1Year.addEventListener('click', async () => {
+    const chart = Chart.getChart('chart-exchange-rate')
+    if(chart !== undefined) {
+        chart.destroy()
+    }
+    
+    await loadDailyExchangeRate(365).then(() => {
+        toggleButtonActive(btnLoadExchange1Year, filterButton)
+    })
+
+})

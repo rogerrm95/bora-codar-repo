@@ -204,7 +204,7 @@ input[type=number] {
     font-weight: 500;
 }
 
-.period-button[data-selected='true'] {
+.selected {
     color: white;
     background-color: var(--highlight);
     padding: 0.5rem 0.75rem;
@@ -231,6 +231,11 @@ input[type=number] {
     justify-content: space-between;
     gap: 1rem;
     padding: 0 0.5rem 0 2rem;
+}
+
+#exchange-rate-container {
+    height: 260px;
+    margin-top: 1.5rem;
 }
 
 /* SMALL DEVICES */

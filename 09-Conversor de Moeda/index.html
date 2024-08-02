@@ -29,12 +29,10 @@
                             <span>USD</span>
                             <img src="./assets/chevron-down.png" alt="">
                         </button>
-
-                        <ul class="select-options"></ul>
                     </div>
                 </div>
 
-                <button title="Inverter" class="icon-button">
+                <button title="Inverter" class="icon-button" id="revert-country-option-btn">
                     <img src="./assets/arrows-exchange.png" alt="Inverter">
                 </button>
                 
@@ -46,14 +44,12 @@
                     
                     <hr class="separator"/>
 
-                    <div id="select-origin-currency-country" class="select-country">
+                    <div id="select-destiny-currency-country" class="select-country">
                         <button title="Selecionar um páis" type="button">
-                            <img src="./assets/bra.png" alt="BRL">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/br.svg" alt="BRL">
                             <span>BRL</span>
                             <img src="./assets/chevron-down.png" alt="">
                         </button>
-
-                        <ul class="select-options"></ul>
                     </div>
                 </div>
             </form>
@@ -67,15 +63,14 @@
             </div>
 
             <div id="filters-buttons">
-                <button class="period-button">1D</button>
-                <button class="period-button">5D</button>
-                <button class="period-button" data-selected="true">1M</button>
-                <button class="period-button">1A</button>
-                <button class="period-button">5A</button>
-                <button class="period-button">Máx</button>
+                <button class="period-button" id="btn-exchange-1-day">1D</button>
+                <button class="period-button" id="btn-exchange-5-day">5D</button>
+                <button class="period-button" id="btn-exchange-30-day">1M</button>
+                <button class="period-button" id="btn-exchange-1-year">1A</button>
             </div>
         </div>
     </div>
 </body>
     <script src="scripts.js"></script>
+    <script src="/components/select.js"></script>
 </html>
