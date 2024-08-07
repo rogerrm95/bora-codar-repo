@@ -15,7 +15,9 @@ async function calculateExchangeRate(currencyFrom, currencyTo, event){
         const valueConverted = (exchangeRate * event.target.value).toFixed(2)
         inputDestiny.value = Number(valueConverted)
 
-        exchangeRateSpan.innerHTML = `Cotação: ${exchangeRate}`
+        exchangeRateFormatted = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: currencyTo}).format(exchangeRate)
+
+        exchangeRateSpan.innerHTML = `Cotação: ${exchangeRateFormatted}`
     }
 }
 

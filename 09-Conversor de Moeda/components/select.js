@@ -91,16 +91,19 @@ selectCountryOrigin.addEventListener('click', () => {
         chevronSelectCountryOrigin.style.transition = 'all 0.3s'
         chevronSelectCountryOrigin.style.transform = 'rotate(0)'
 
+        const chart = Chart.getChart('chart-exchange-rate')
+        chart.destroy()
+
         resetFields()
     } else {
         ul.style.display = 'flex'
         chevronSelectCountryOrigin.style.transition = 'all 0.3s'
         chevronSelectCountryOrigin.style.transform = 'rotate(-90deg)'
+
         // EVITAR 2 SELECTS ABERTO SIMULTANEAMENTE //
         selectCountryDestiny.getElementsByTagName('ul')[0].style.display = 'none'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
         chevronSelectCountryDestiny.style.transform = 'rotate(0)'
-
     }
 })
 
@@ -146,12 +149,16 @@ selectCountryDestiny.addEventListener('click', () => {
         ul.style.display = 'none'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
         chevronSelectCountryDestiny.style.transform = 'rotate(0)'
+
+        const chart = Chart.getChart('chart-exchange-rate')
+        chart.destroy()
         
         resetFields()
     } else {
         ul.style.display = 'flex'
         chevronSelectCountryDestiny.style.transition = 'all 0.3s'
         chevronSelectCountryDestiny.style.transform = 'rotate(-90deg)'
+
         // EVITAR 2 SELECTS ABERTO SIMULTANEAMENTE //
         selectCountryOrigin.getElementsByTagName('ul')[0].style.display = 'none'
         chevronSelectCountryOrigin.style.transition = 'all 0.3s'

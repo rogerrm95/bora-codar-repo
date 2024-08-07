@@ -47,6 +47,11 @@ const countryOriginSelect = document.getElementById('select-origin-currency-coun
 const countryDestinySelect = document.getElementById('select-destiny-currency-country')
 const filterButton = document.querySelectorAll('.period-button')
 
+const btnLoadExchange1Day = document.getElementById('btn-exchange-1-day')
+const btnLoadExchange5Day = document.getElementById('btn-exchange-5-day')
+const btnLoadExchange30Day = document.getElementById('btn-exchange-30-day')
+const btnLoadExchange1Year = document.getElementById('btn-exchange-1-year')
+
 // FUNÇÃO - CARREGAR OS DADOS DA API AWESOME (COTAÇÃO) E ALIMENTAR O GRÁFICO //
 async function loadDailyExchangeRate(days){
     const currencyOrigin = countryOriginSelect.getElementsByTagName('span')[0].textContent
@@ -88,7 +93,6 @@ function toggleButtonActive(buttonTarget, buttonsList){
 }
 
 // FILTRAR POR 1 DIA //
-const btnLoadExchange1Day = document.getElementById('btn-exchange-1-day')
 btnLoadExchange1Day.addEventListener('click', async () => {
     const chart = Chart.getChart('chart-exchange-rate')
     if(chart !== undefined) {
@@ -100,7 +104,6 @@ btnLoadExchange1Day.addEventListener('click', async () => {
 })
 
 // FILTRAR POR 5 DIAS //
-const btnLoadExchange5Day = document.getElementById('btn-exchange-5-day')
 btnLoadExchange5Day.addEventListener('click', async () => {
     const chart = Chart.getChart('chart-exchange-rate')
     if(chart !== undefined) {
@@ -110,7 +113,6 @@ btnLoadExchange5Day.addEventListener('click', async () => {
 })
 
 // FILTRAR POR 30 DIAS //
-const btnLoadExchange30Day = document.getElementById('btn-exchange-30-day')
 btnLoadExchange30Day.addEventListener('click', async () => {
     const chart = Chart.getChart('chart-exchange-rate')
     if(chart !== undefined) {
@@ -120,7 +122,6 @@ btnLoadExchange30Day.addEventListener('click', async () => {
 })
 
 // FILTRAR POR 1 ANO //
-const btnLoadExchange1Year = document.getElementById('btn-exchange-1-year')
 btnLoadExchange1Year.addEventListener('click', async () => {
     const chart = Chart.getChart('chart-exchange-rate')
     if(chart !== undefined) {
@@ -131,4 +132,9 @@ btnLoadExchange1Year.addEventListener('click', async () => {
         toggleButtonActive(btnLoadExchange1Year, filterButton)
     })
 
+})
+
+// EVENTO AO CARREGAR TELA //
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadDailyExchangeRate(5).then(() => toggleButtonActive(btnLoadExchange5Day, filterButton))
 })
