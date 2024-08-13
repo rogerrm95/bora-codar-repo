@@ -1,0 +1,12 @@
+{
+  "name": "previsao-tempo",
+  "version": "1.0.0",
+  "description": "App de previsão do tempo consumindo API externa",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
