@@ -13,28 +13,27 @@
     <div id="container"> 
         <main class="card temp-box">
             <header>
-                <img src="/assets/icons/cloudy.png" id="weather-image" ="Clima"/>
+                <img src="/assets/icons/clouds.png" id="weather-image" alt="Clima"/>
                 
                 <div class="location">
                     <img src="./assets/icons/pin.svg" alt="Localização" />
-                    <span>Taboão da Serra, SP</span>
+                    <span id="city-label">Taboão da Serra, SP</span>
                 </div>
             </header>
 
             <div class="temp">
                 <div class="temp-now">
-                    <h2>18</h2>
+                    <h2>0</h2>
                     <span>º C</span>
                 </div>
 
                 <div class="temp-max-min">
-                    <strong id="temp-max">22º</strong>
+                    <strong id="temp-max">0º</strong>
                     
-                    <span id="temp-min">16º</span>
+                    <span id="temp-min">0º</span>
                 </div>
             </div>
 
-            <!-- CONTINUAR -->
             <footer class="statistics">
                 <div class="statistics-card" id="statistics-wind">
                     <img src="./assets/icons/wind.svg" alt="Vento">
@@ -42,7 +41,7 @@
                     <div class="statistics-info">
                         <span>Vento</span>
                         <span>
-                            <strong>17</strong>
+                            <strong id="wind">-</strong>
                             km/h
                         </span>
                     </div>
@@ -54,7 +53,7 @@
                     <div class="statistics-info">
                         <span>Umidade</span>
                         <span>
-                            <strong>31</strong>
+                            <strong id="humidity">-</strong>
                             %
                         </span>
                     </div>
@@ -66,7 +65,7 @@
                     <div class="statistics-info">
                         <span>Chuva</span>
                         <span>
-                            <strong>10</strong>
+                            <strong id="rain">-</strong>
                             %
                         </span>
                     </div>
@@ -131,79 +130,26 @@
                     <h2>Horário do Sol</h2>
                 </header>
 
-                <!-- VERSÃO MOBILE -->
-                <div class="sun-time-mobile">
-                    <div class="sun-time-mobile-item">
-                        <div class="sun-time-mobile-info">
+                <div class="sun-time">
+                    <div class="sun-time-item">
+                        <div class="sun-time-info">
                             <p>Nascer do sol</p>
-                            <span>06:12</span>
+                            <span id="sunrise">00:00</span>
                         </div>
                         <img src="./assets/icons/sunrise.png" alt="Nascer do Sol"/>
                     </div>
 
-                    <div class="sun-time-mobile-item">
-                        <div class="sun-time-mobile-info">
+                    <div class="sun-time-item">
+                        <div class="sun-time-info">
                             <p>Pôr do sol</p>
-                            <span>18:58</span>
+                            <span id="sunset">00:00</span>
                         </div>
                         <img src="./assets/icons/sunset.png" alt="Pôr do Sol"/>
                     </div>
                 </div>
-
-                <!-- VERSÃO WEB -->
-                <div>
-                    <canvas id="sun-time-clock" width="250" height="150">
-                        <cirle></cirle>
-                    </canvas>
-                </div>
             </div>
 
-            <ul class="card weather-forecast-box">
-                <li class="day">
-                    <span>Amanhã</span>
-                    <img src="./assets/icons/cloudy.png" alt="Clima"/>
-                    <div class="max-min">
-                        <span>20º</span>
-                        <span>22º</span>
-                    </div>
-                </li>
-
-                <li class="day">
-                    <span>Segunda-Feira</span>
-                    <img src="./assets/icons/partly-sunny.png" alt="Clima"/>
-                    <div class="max-min">
-                        <span>22º</span>
-                        <span>25º</span>
-                    </div>
-                </li>
-
-                <li class="day">
-                    <span>Terça-Feira</span>
-                    <img src="./assets/icons/heavy-rain.png" alt="Clima"/>
-                    <div class="max-min">
-                        <span>12º</span>
-                        <span>05º</span>
-                    </div>
-                </li>
-
-                <li class="day">
-                    <span>Quarta-Feira</span>
-                    <img src="./assets/icons/rainy.png" alt="Clima"/>
-                    <div class="max-min">
-                        <span>11º</span>
-                        <span>02º</span>
-                    </div>
-                </li>
-
-                <li class="day">
-                    <span>Quinta-Feira</span>
-                    <img src="./assets/icons/sunny.png" alt="Clima"/>
-                    <div class="max-min">
-                        <span>17º</span>
-                        <span>15º</span>
-                    </div>
-                </li>
-            </ul>
+            <ul id="forecast-list" class="card weather-forecast-box"></ul>
         </section>
     </div>
 </body>
