@@ -1,8 +1,32 @@
-import {OPEN_WEATHER_API_KEY as OpenWheatherAPIKey, AIR_QUALITY_API_KEY as AirQualityAPIKey}  from './env/index.js'
+import {OPEN_WEATHER_API_KEY, WAQ_API_KEY}  from './env/index.js'
 
 const CITY = 'Taboão da Serra'
+const STATE = "sao-paulo"
 
-// FUNÇÃO - FORMATAÇÃO DE DADOS EM TIMESTAMP PARA DIA DA SEMANA
+// FUNÇÃO - AVALIAR QUALIDADE DO AR //
+function airQualityAvaliation(index = 0) {
+  let avaliation = ''
+  let description = ''
+
+  if (index <= 50) {
+    avaliation = 'great'
+    description = 'Bom';
+  } else if (index <= 100) {
+    avaliation = 'warning'
+    description = 'Moderado';
+  } else {
+    avaliation = 'danger'
+    description = 'Ruim';
+  }
+
+  return {
+    value: index,
+    avaliation,
+    description,
+  }
+}
+
+// FUNÇÃO - FORMATAÇÃO DE DADOS EM TIMESTAMP PARA DIA DA SEMANA //
 function formatterDayOfWeek(timestamp, locale='pt-BR') {
     const date = new Date(timestamp * 1000)
     const dateOfWeek = date.toLocaleDateString(locale, {weekday: 'long'})
@@ -10,7 +34,7 @@ function formatterDayOfWeek(timestamp, locale='pt-BR') {
     return dateOfWeek.charAt(0).toUpperCase() + dateOfWeek.slice(1)
 }
 
-// FUNÇÃO - FORMATAÇÃO DE DADOS EM TIMESTAMP PARA HORÁRIO
+// FUNÇÃO - FORMATAÇÃO DE DADOS EM TIMESTAMP PARA HORÁRIO //
 function formatterTime(timestamp, locale='pt-BR'){
   const date = new Date(timestamp * 1000)
   const time = date.toLocaleTimeString(locale, {
@@ -21,9 +45,27 @@ function formatterTime(timestamp, locale='pt-BR'){
   return time
 }
 
-// FUNÇÃO - PREVISÃO DO TEMPO DE HOJE 
+// FUNÇÃO - CONSULTAR API DE QUALIDADE DO AR //
+async function getAirQuality() {
+  const {data} = await axios.get(`http://api.waqi.info/feed/${STATE}/?token=${WAQ_API_KEY}`)
+    .then(response => response.data)
+
+  const airQuality = {
+    pm25: data.iaqi.pm25.v,
+    pm10: data.iaqi.pm10.v,
+    co: data.iaqi.co.v,
+    no2: data.iaqi.no2.v,
+    o3: data.iaqi.o3.v,
+    so2: data.iaqi.so2?.v || 0.0,
+    aqi: airQualityAvaliation(data.aqi)
+  }
+
+  return airQuality
+}
+
+// FUNÇÃO - CONSULTAR API DE PREVISÃO DO TEMPO DE HOJE //
 async function getTodayWeather(){
-  const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${OpenWheatherAPIKey}&units=metric&lang=pt_br`).then(response => response.data)
+  const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${OPEN_WEATHER_API_KEY}&units=metric&lang=pt_br`).then(response => response.data)
   
   const wheatherToday = {
       temp: Math.round(data.main.temp),
@@ -41,9 +83,9 @@ async function getTodayWeather(){
   return wheatherToday
 }
 
-// FUNÇÃO - PREVISÃO DO TEMPO (5 DIAS)
+// FUNÇÃO - CONSULTAR API DE PREVISÃO DO TEMPO (5 DIAS) //
 async function getForecastWheather(){
-    const data = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${OpenWheatherAPIKey}&units=metric&lang=pt_br`).then(response => response.data)
+    const data = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${OPEN_WEATHER_API_KEY}&units=metric&lang=pt_br`).then(response => response.data)
     
     const dailyWeather = {};
 
@@ -100,13 +142,8 @@ async function getForecastWheather(){
     return forecastResults
 }
 
-async function getAirQuality() {
-    // Implementar //
-    // Estudar a API da AirVisual API e Breezometer API
-}
-
 window.document.addEventListener('DOMContentLoaded', async () => {
-    const [wheatherToday, forecastResults] = await Promise.all([getTodayWeather(), getForecastWheather()])
+    const [wheatherToday, forecastResults, airQuality] = await Promise.all([getTodayWeather(), getForecastWheather(), getAirQuality()])
 
     // CARD 1 - TEMPO (HOJE) 
     document.getElementById('city-label').innerHTML = CITY
@@ -129,8 +166,27 @@ window.document.addEventListener('DOMContentLoaded', async () => {
     rain.innerHTML = `${wheatherToday.rainPercentual}`
 
     // CARD 2 - QUALIDADE DO AR
-    // PENDENTE
-    // INTEGRAÇÃO COM A API Breezometer 
+    const airQualityDiv = document.getElementById('air-quality')
+
+    const airQualityAvalationSpan = airQualityDiv.getElementsByTagName('span')[0]
+    airQualityAvalationSpan.innerHTML = airQuality.aqi.description
+    airQualityAvalationSpan.classList.add(`text-${airQuality.aqi.avaliation}`)
+    
+    const airQualityValueSpan = airQualityDiv.getElementsByTagName('span')[1]
+    airQualityValueSpan.innerHTML = airQuality.aqi.value
+
+    document.getElementById('PM2.5').textContent = airQuality.pm25
+    document.getElementById('PM10').textContent = airQuality.pm10
+    document.getElementById('SO2').textContent = airQuality.so2
+    document.getElementById('NO2').textContent = airQuality.no2
+    document.getElementById('O2').textContent = airQuality.o3
+    document.getElementById('CO').textContent = airQuality.co
+
+    const pollutantsIndex = document.getElementsByClassName('pollutants-index')
+
+    for(let i=0; i < pollutantsIndex.length; i++) {
+        pollutantsIndex[i].classList.add(`text-${airQuality.aqi.avaliation}`)
+    }
 
     // CARD 3 - HORÁRIO DO SOL
     const sunrise = formatterTime(wheatherToday.suntime.sunrise)
@@ -175,5 +231,3 @@ window.document.addEventListener('DOMContentLoaded', async () => {
     }
 }
 )
-
-getAirQuality()
