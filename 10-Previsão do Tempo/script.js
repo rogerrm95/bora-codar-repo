@@ -150,6 +150,13 @@ window.document.addEventListener('DOMContentLoaded', async () => {
     const temparatureNow = document.getElementsByClassName('temp-now')[0].children[0]
     temparatureNow.innerHTML = `${wheatherToday.temp}`
 
+    const header = document.getElementsByTagName('header')[0]
+    const wheatherImage = document.createElement('img')
+    wheatherImage.src = `./assets/icons/${forecastResults[0].weather}-3x.png`
+    wheatherImage.alt = "Clima"
+    wheatherImage.id = 'weather-image'
+    header.prepend(wheatherImage)
+
     const temparatureMax = document.getElementById('temp-max')
     temparatureMax.innerHTML = `${wheatherToday.tempMax}º`
 
