@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 
     <title>Kanban | #BoraCodar</title>
@@ -78,169 +78,19 @@
                     <li id="task-pending" class="task-board">
                         <h2>A fazer</h2>
 
-                        <ul id="task-list-pending" class="task-list">
-                            <li class="task">
-                                <h3>#boraCodar um Kanban 🧑‍💻</h3>
-
-                                <p class="line-clamp-2">
-                                    Novo desafio do #boraCodar da Rocketseat,
-                                    onde é proposto construir um quadro de Kanban.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>rocketseat</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>desafio</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            
-                            <li class="task">
-                                <h3>#boraCodar um Kanban 🧑‍💻</h3>
-
-                                <p class="line-clamp-2">
-                                    Novo desafio do #boraCodar da Rocketseat,
-                                    onde é proposto construir um quadro de Kanban.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>rocketseat</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>desafio</span>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>                
+                        <ul id="task-list-pending" class="task-list"></ul>                
                     </li>
 
                     <li id="task-running" class="task-board">
                         <h2>Fazendo</h2>
 
-                        <ul class="task-list">
-                            <li class="task">
-                                <h3>#boraCodar um Kanban 🧑‍💻</h3>
-
-                                <p class="line-clamp-2">
-                                    Novo desafio do #boraCodar da Rocketseat,
-                                    onde é proposto construir um quadro de Kanban.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>rocketseat</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>desafio</span>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>                
+                        <ul id="task-list-running" class="task-list"></ul>                
                     </li>
 
                     <li id="task-completed" class="task-board">
                         <h2>Feito</h2>
 
-                        <ul class="task-list">
-                            <li class="task">
-                                <h3>Estudar Go</h3>
-
-                                <p class="line-clamp-2">
-                                    Estudar nova linguagem de programação, GO.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>Go</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Google</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Education</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="task">
-                                <h3>Estudar Go</h3>
-
-                                <p class="line-clamp-2">
-                                    Estudar nova linguagem de programação, GO.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>Go</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Google</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Education</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="task">
-                                <h3>Estudar Go</h3>
-
-                                <p class="line-clamp-2">
-                                    Estudar nova linguagem de programação, GO.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>Go</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Google</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Education</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="task">
-                                <h3>Estudar Go</h3>
-
-                                <p class="line-clamp-2">
-                                    Estudar nova linguagem de programação, GO.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>Go</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Google</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Education</span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="task">
-                                <h3>Estudar Go</h3>
-
-                                <p class="line-clamp-2">
-                                    Estudar nova linguagem de programação, GO.
-                                </p>
-
-                                <ul id="tags" class="tag-list">
-                                    <li class="tag-item">
-                                        <span>Go</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Google</span>
-                                    </li>
-                                    <li class="tag-item">
-                                        <span>Education</span>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>                
+                        <ul id="task-list-completed" class="task-list"></ul>                
                     </li>
                 </ul>
             </section>

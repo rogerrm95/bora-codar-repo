@@ -269,6 +269,20 @@ ul {
     padding: 0 1.5rem;
 }
 
+.empty-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    & span {
+        font-size: 0.875rem;
+        color: var(--brown-100);
+        text-align: center;
+    }
+}
+
 .task {
     display: flex;
     flex-direction: column;
@@ -504,6 +518,10 @@ ul {
 
     .task {
         width: 320px;
+    }
+
+    .empty-board {
+        width: 160px;
     }
 }
 
