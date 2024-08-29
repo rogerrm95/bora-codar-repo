@@ -2,9 +2,12 @@ const api = axios.create({
     baseURL: "http://localhost:3004"
 })
 
-const btnMenuLink = document.getElementById('btn-menu-link')
+document.getElementById('btn-menu-link').addEventListener('click', openMenuLink)
+document.getElementById('input-search-text').addEventListener('input', (event) => {
+    filteredActivities(event.target.value)
+})
 
-btnMenuLink.addEventListener('click', function() {
+function openMenuLink(){
     const navLink = document.getElementsByClassName('navlink')
     const navLinkArray =  Array.from(navLink)
 
@@ -12,7 +15,7 @@ btnMenuLink.addEventListener('click', function() {
         item.classList.toggle('show')
         item.classList.toggle('opened')
     })
-})
+}
 
 function separateActivitiesStatus(activities){
     const pending = activities.filter(activity => activity.status === 'pending')
@@ -39,7 +42,7 @@ function populateBoard(activities, boardId){
         li.classList.add('task')
         li.innerHTML = `
             <h3>${activity.title}</h3>
-            <p class='line-clamp'>${activity.description}</p>
+            <p class="line-clamp-2">${activity.description}</p>
         `
         const tagsUl = document.createElement('ul')
         tagsUl.id = 'tags'
@@ -66,7 +69,24 @@ async function getAllActivities(){
     populateBoard(pending, 'task-list-pending')
     populateBoard(running, 'task-list-running')
     populateBoard(completed, 'task-list-completed')
-} 
+}
+
+function filteredActivities(value){
+    const text = value.toLowerCase()
+
+    const tasks = document.querySelectorAll('.task')
+
+    tasks.forEach(task => {
+        const h3 = task.querySelector('h3').textContent.toLocaleLowerCase()
+        const p = task.querySelector('p').textContent.toLocaleLowerCase()
+        
+        if (h3.includes(text) || p.includes(text)){
+            task.classList.remove('hidden')           
+        } else {
+            task.classList.add('hidden')
+        }
+    })
+}
 
 window.document.addEventListener('DOMContentLoaded', async () => {
     await getAllActivities()

@@ -206,6 +206,10 @@ ul {
     white-space: nowrap;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
@@ -333,6 +337,7 @@ ul {
 #container {
     width: 100%;
     background: var(--purple-500);
+    height: 100dvh;
 
     & header {
         padding: 1.25rem;
@@ -464,7 +469,7 @@ ul {
 
         & main {
             border-top-right-radius: 0px;
-            height: 100vh;
+            height: 100dvh;
         }
     }
 
@@ -511,13 +516,13 @@ ul {
         }
     }
 
+    .task-list {
+        width: 320px;
+    }
+
     .navlink {
         display: flex;
         gap: 1rem;
-    }
-
-    .task {
-        width: 320px;
     }
 
     .empty-board {
