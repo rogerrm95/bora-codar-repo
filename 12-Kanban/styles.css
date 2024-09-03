@@ -271,6 +271,8 @@ ul {
     flex-direction: column;
     gap: 1.5rem;
     padding: 0 1.5rem;
+    min-height: 150px;
+    margin-bottom: 1rem;
 }
 
 .empty-board {
@@ -518,6 +520,7 @@ ul {
 
     .task-list {
         width: 320px;
+        min-height: 300px;
     }
 
     .navlink {
