@@ -111,6 +111,11 @@ ul {
     border: 2px solid var(--brown-100);
 }
 
+.active-link {
+    color: var(--white) !important;
+    font-weight: 700 !important;
+}
+
 .btn-primary{
     display: flex;
     align-items: center;
@@ -177,6 +182,7 @@ ul {
     align-items: center;
     gap: 0.5rem;
 
+    text-decoration: none;
     color: var(--purple-250);
     transition: color 0.3s ease-in-out;
     cursor: pointer;
@@ -185,12 +191,7 @@ ul {
         color: var(--white);
     }
 
-    & a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    & a:focus{
+    &:focus{
         outline: 1px solid var(--white);
     }
     
@@ -488,21 +489,6 @@ ul {
         gap: 3rem;
     }
 
-    #menu-link {
-        display: flex;
-        flex-direction: column;
-        width: 80px;
-        transition: width 0.5s ease-in;
-
-        & .navlink {
-            flex-direction: row;
-            justify-content: start;
-        }
-
-        & a {
-            display: none;
-        }
-    }
 
     #board-list {
         flex-direction: row;
@@ -510,6 +496,13 @@ ul {
     
         max-width: 550px;
         height: 100vh;
+    }
+
+    #menu-link {
+        display: flex;
+        flex-direction: column;
+        width: 80px;
+        transition: width 0.5s ease-in;
     }
 
     .btn-filter {   
@@ -533,40 +526,20 @@ ul {
     }
 }
 
-@media(min-width: 768px) and (max-width: 962px) {
-    #menu-link:hover {
-        width: 160px;
-
-        & .navlink {
-            & i {
-                width: 1.5rem;
-            }
-        }
-
-        & a {
-            display: block;
-        }
-    }
-}
-
 /* LAPTOP */
 @media(min-width: 962px) {
     #menu-link {
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        width: 175px;
+        width: 160px;
         gap: 2rem;
 
 
         & .navlink {
             flex-direction: row;
             justify-content: start;
-            gap: 1rem;
-
-            & a {
-                display: block;
-            }
+            gap: 1.25rem;
 
             & i {
                 width: 1.5rem;

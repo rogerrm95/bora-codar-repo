@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
 
     <title>Kanban | #BoraCodar</title>
 </head>
 <body>
     <div id="container">
+        <!-- CABEÇALHO -->
         <header>
             <div id="menu-top">
-                <img src="./assets/logo.png" alt="Logo Kanban" title="Kanban">
+                <img src="../assets/logo.png" alt="Logo Kanban" title="Kanban">
 
                 
                 <button class="btn-secondary" id="btn-menu-link">
@@ -21,42 +22,39 @@
                 </button>
             </div>
 
-            <nav id="nav-menu-link">
-                <ul id="menu-link">
-                    <li id="link-boards" class="navlink">                   
-                        <i class="fa-solid fa-tablet-screen-button"></i>
-                        <a href="#">Boards</a>
-                    </li>
-
-                    <li id="link-people" class="navlink">
-                        <i class="fa-solid fa-users"></i>
-                        <a href="#">Equipes</a>
-                    </li>
-
-                    <li id="link-document" class="navlink">
-                        <i class="fa-solid fa-file-lines"></i>
-                        <a href="#">Relatórios</a>
-                    </li>
-
-                    <li id="link-config" class="navlink">
-                        <i class="fa-solid fa-gear"></i>
-                        <a href="#">Ajustes</a>
-                    </li>
-                </ul>
+            <nav id="menu-link">
+                <a id="link-boards" class="navlink" href="index.html">
+                    <i class="fa-solid fa-tablet-screen-button"></i> Boards
+                </a>
+                
+                <a id="link-people" class="navlink" href="teams.html">
+                    <i class="fa-solid fa-users"></i> Equipes
+                </a>
+                
+                <a id="link-document" class="navlink" href="docs.html">
+                    <i class="fa-solid fa-file-lines"></i> Relatórios
+                </a>
+                
+                <a id="link-config" class="navlink" href="settings.html">
+                    <i class="fa-solid fa-gear"></i> Ajustes
+                </a>
             </nav>
 
         </header>
 
+        <!-- CONTEUDO -->
         <main>
+            <!-- SEÇÃO - NOME DO KANBAN -->
             <section id="kanban-info">
                 <div>
                     <h2 class="truncate heading">Meu Kanban</h2>
                     <i class="fa-solid fa-pencil" title="Editar"></i>
                 </div>
 
-                <img src="./assets/perfil.png" alt="perfil" title="Roger Marques" class="avatar">
+                <img src="../assets/perfil.png" alt="perfil" title="Roger Marques" class="avatar">
             </section>
 
+            <!-- SEÇÃO - PESQUISAR ATIVIDADE -->
             <section id="kanban-search">
                 <button class="btn-primary btn-filter">
                     <i class="fa-solid fa-filter"></i>
@@ -73,6 +71,7 @@
                 </label>
             </section>
 
+            <!-- SEÇÃO - LISTAS DE ATIVIDADES -->
             <section id="kanban-todo">
                 <ul id="board-list">
                     <li id="task-pending" class="task-board">
@@ -97,5 +96,6 @@
         </main>
     </div>
 </body>
-    <script src="scripts.js"></script>
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/routes.js"></script>
 </html>

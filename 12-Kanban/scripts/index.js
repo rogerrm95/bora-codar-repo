@@ -2,21 +2,9 @@ const api = axios.create({
     baseURL: "http://localhost:3004"
 })
 
-document.getElementById('btn-menu-link').addEventListener('click', openMenuLink)
 document.getElementById('input-search-text').addEventListener('input', (event) => {
     filteredActivities(event.target.value)
 })
-
-// FUNÇÃO - ABRIR E FECHAR MENU (NAVBAR) //
-function openMenuLink(){
-    const navLink = document.getElementsByClassName('navlink')
-    const navLinkArray =  Array.from(navLink)
-
-    navLinkArray.forEach(item => {
-        item.classList.toggle('show')
-        item.classList.toggle('opened')
-    })
-}
 
 // FUNÇÃO - SEPARAR AS ATIVIDADES POR STATUS //
 function separateActivitiesStatus(activities){
