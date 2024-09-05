@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%; // 15px
+    }
+}
+
+
+:root {
+    --gray-900: #111827;
+    --gray-800: #1F2937;
+    --gray-700: #374151;
+    --gray-600: #4B5563;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-300: #D1D5DB;
+    --gray-200: #E5E7EB;
+    --gray-100: #F3F4F6;
+    --gray-50: #F9FAFB;
+
+    --purple: #9333EA;
+    --purple-light: #A855F7;
+
+    --green: #6EE7B7;
+    --red: #FB7185;
+}
+
+body {
+    background-color: var(--gray-800);
+    color: var(--gray-200);
+    font-family: "Source Sans 3", sans-serif;
+}
+
+
+/* ID's */
+#container {
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 2rem 1.5rem;
+}
+
+/* Classe */
+.card {
+    background: url(../assets/background-card.png) no-repeat;
+    width: 280px;
+    height: 168px;
+    
+    border-radius: 16px;
+    border: 1px solid #374151;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+
+    margin-top: 4rem;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.card-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-particial-number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 4px;
+    color: var(--gray-50);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    & span {
+        color: var(--gray-50);
+        font-size: 0.875rem;
+    }
+}
+
+.card-validity-date {
+    letter-spacing: 6px;
+    font-weight: 700;
+}
+
+.text-empty {
+    color: var(--gray-50);
+    opacity: 0.5;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 992px) {
+    body {
+        background-color: var(--gray-900);
+    }
+
+    #container {
+        background-color: var(--gray-800);
+        max-width: 736px;
+        margin: auto;
+        height: auto;
+
+        border-radius: 8px;
+        border: 1px solid var(--gray-700);
+
+        display: grid;        
+    }
+
+    .card {
+        grid-area: 'card';
+        margin-top: 0px;
+    }
+
+    .card-particial-number {
+        font-size: 1rem;
+    }
+}
