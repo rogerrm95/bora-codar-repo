@@ -41,6 +41,44 @@ body {
     font-family: "Source Sans 3", sans-serif;
 }
 
+input {
+    all: unset;
+
+    background-color: var(--gray-900);
+    border: 1px solid var(--gray-700);
+    padding: 0.75rem;
+
+    transition: all 0.3s;
+}
+
+button, input {
+    font-family: "Source Sans 3", sans-serif;
+    border-radius: 4px;
+}
+
+input:focus-within {
+    outline: 1px solid var(--purple);
+}
+
+input:hover {
+    border-color: var(--gray-500);
+}
+
+input::placeholder {
+    color: var(--gray-500);
+}
+
+/* REMOVE OS ICONES NATIVOS */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 
 /* ID's */
 #container {
@@ -48,12 +86,15 @@ body {
     overflow: hidden;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
 
     padding: 2rem 1.5rem;
 }
 
 /* Classe */
+/* CARTÃO */
 .card {
     background: url(../assets/background-card.png) no-repeat;
     width: 280px;
@@ -111,6 +152,91 @@ body {
     font-weight: 700;
 }
 
+/* FORMULARIO */
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-200);
+
+    & span {
+        display: flex;
+        gap: 0.5rem;
+    }   
+
+    & span img {
+        height: 16px;
+        cursor: pointer;
+    }
+}
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    & .input-box:first-child {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    & .input-box:last-child {
+        flex: 0.5;
+        min-width: 80px;
+    }
+}
+
+/* INFORMAÇÕES */
+.safe-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* BOTÃO SALVAR */
+.btn-add-card {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+
+    padding: 1rem 3rem;
+    margin-top: 1.75rem;
+
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    background-color: var(--purple);
+
+    font-weight: 700;
+    color: var(--gray-50);
+    line-height: 24px;
+    
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+        background-color: var(--purple-light);
+    }
+
+    &:focus {
+        outline: 1px solid var(--gray-50);
+        border-color: var(--gray-800);
+    }
+}
+
+/* MULTI USO */
 .text-empty {
     color: var(--gray-50);
     opacity: 0.5;
@@ -122,9 +248,17 @@ body {
     white-space: nowrap;
 }
 
+
 /* MEDIA QUERIES */
 
 @media (min-width: 992px) {
+    html, body {
+        height: 100%;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+
     body {
         background-color: var(--gray-900);
     }
@@ -132,21 +266,52 @@ body {
     #container {
         background-color: var(--gray-800);
         max-width: 736px;
+        height: 420px;
         margin: auto;
-        height: auto;
 
         border-radius: 8px;
         border: 1px solid var(--gray-700);
 
-        display: grid;        
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-rows: repeat(3, 1fr);
+        align-items: flex-start;
+        gap: 3rem 2rem;        
+
+        grid-template-areas: 
+        "form card"
+        "form safe"
+        "button button";
     }
 
+
+
     .card {
-        grid-area: 'card';
-        margin-top: 0px;
+        grid-area: card;
+        margin-top: 1rem;
+    }
+
+    .card-info {
+        grid-area: form;
+    }
+
+    .btn-add-card {
+        grid-area: button;
     }
 
     .card-particial-number {
         font-size: 1rem;
+    }
+
+    /* INFORMAÇÕES */
+    .safe-info {
+        grid-area: safe;
+        justify-content: center;
+        margin-right: 47px;
+    }
+
+    .btn-add-card {
+        font-size: 1rem;
+        margin-top: 0;
     }
 }

@@ -9,16 +9,18 @@
 </head>
 <body>
     <div id="container">
+        <!-- CARTÃO -->
         <div class="card">
             <section class="card-top-info">
-                <img src="./assets/visa-icon.png" alt="Bandeira Visa" title="Bandeira Visa"/>
+                <!-- <img src="./assets/visa-icon.png" alt="Bandeira Visa" title="Bandeira Visa"/> -->
+                <span>- - -</span>
                 <img src="./assets/contactless-payment.png" alt="Aproximação Ícone" title="Aproximação Ícone"/>
             </section>
 
             <section class="card-number">
-                <div class="card-particial-number">4716</div>
-                <div class="card-particial-number">8039</div>
-                <div class="card-particial-number">02**</div>
+                <div class="card-particial-number">****</div>
+                <div class="card-particial-number">****</div>
+                <div class="card-particial-number">****</div>
                 <div class="card-particial-number text-empty">****</div>
             </section>
 
@@ -30,16 +32,61 @@
             </section>
         </div>
         
+        <!-- FORMULÁRIO -->
         <form class="card-info">
+            <label class="input-box">
+                <span>Número do cartão</span>
+                <input 
+                    id="user-card-number"
+                    placeholder="**** **** **** ****"
+                    required>
+            </label>
+
+            <label  class="input-box">
+                <span>Nome do titular</span>
+                <input 
+                    id="user-card-name"
+                    type="text"
+                    placeholder="Nome como está no cartão"
+                    maxlength="30"
+                    required>
+            </label>
+            
+            <div class="form-group">
+                <label class="input-box">
+                    <span>Validade</span>
+                    <input 
+                        id="user-card-validity" 
+                        type="text"  
+                        placeholder="mm/aa" 
+                        required>
+                </label>
+
+                <label class="input-box">
+                    <span>
+                        CVV
+                        <img src="./assets/question.png" alt="Ajuda" title="Ajuda">
+                    </span>
+                    <input 
+                        id="user-card-code"
+                        type="number"
+                        placeholder="***"
+                        required>
+                </label>
+            </div>
+
         </form>
 
-        <div class="sales-info">
-
+        <!-- INFORMAÇÕES -->
+        <div class="safe-info">
+            <img src="./assets/shield-check.png" title="Site seguro"/>
+            <span>Seus dados estão seguros</span>
         </div>
 
-        <div class="actions">
-
-        </div>
+        <!-- BOTÃO SALVAR -->
+        <button class="btn-add-card">
+            Adicionar cartão
+        </button>
     </div>  
 </body>
     <script src="scripts.js"></script>  
