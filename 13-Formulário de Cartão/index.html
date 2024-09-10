@@ -18,10 +18,7 @@
             </section>
 
             <section class="card-number">
-                <div class="card-particial-number">****</div>
-                <div class="card-particial-number">****</div>
-                <div class="card-particial-number">****</div>
-                <div class="card-particial-number text-empty">****</div>
+                    <span class="text-empty">**** **** **** *****</span>
             </section>
 
             <section class="card-bottom-info">
@@ -39,6 +36,7 @@
                 <input 
                     id="user-card-number"
                     placeholder="**** **** **** ****"
+                    maxlength="19"
                     required>
             </label>
 
@@ -46,9 +44,8 @@
                 <span>Nome do titular</span>
                 <input 
                     id="user-card-name"
-                    type="text"
                     placeholder="Nome como está no cartão"
-                    maxlength="30"
+                    maxlength="20"
                     required>
             </label>
             
@@ -58,7 +55,8 @@
                     <input 
                         id="user-card-validity" 
                         type="text"  
-                        placeholder="mm/aa" 
+                        placeholder="mm/aa"
+                        maxlength="5"
                         required>
                 </label>
 
@@ -71,6 +69,8 @@
                         id="user-card-code"
                         type="number"
                         placeholder="***"
+                        max="3"
+                        min="3"
                         required>
                 </label>
             </div>
@@ -84,7 +84,7 @@
         </div>
 
         <!-- BOTÃO SALVAR -->
-        <button class="btn-add-card">
+        <button id="btn-submit" class="btn-add-card" disabled>
             Adicionar cartão
         </button>
     </div>  

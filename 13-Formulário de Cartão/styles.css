@@ -122,16 +122,16 @@ input[type=number] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
 
-.card-particial-number {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    letter-spacing: 4px;
-    color: var(--gray-50);
-    font-size: 1.25rem;
-    font-weight: 600;
+    & span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        letter-spacing: 4px;
+        color: var(--gray-50);
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
 }
 
 .card-bottom-info {
@@ -234,6 +234,11 @@ input[type=number] {
         outline: 1px solid var(--gray-50);
         border-color: var(--gray-800);
     }
+    &:disabled {
+        background-color: var(--gray-500);
+        color: var(--gray-400);
+        cursor: not-allowed;
+    }
 }
 
 /* MULTI USO */
@@ -248,6 +253,18 @@ input[type=number] {
     white-space: nowrap;
 }
 
+.input-invalid {
+    border-color: var(--red);
+
+    &:hover {
+        border-color: var(--red);
+        outline: 
+    }
+
+    &:focus-within {
+        outline: 1px solid var(--red);
+    }
+}
 
 /* MEDIA QUERIES */
 
