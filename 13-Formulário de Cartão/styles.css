@@ -266,6 +266,16 @@ input[type=number] {
     }
 }
 
+.text-invalid {
+    color: var(--red);
+    font-weight: 500;
+    font-size: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width: 992px) {

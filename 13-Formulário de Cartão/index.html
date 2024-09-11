@@ -12,13 +12,12 @@
         <!-- CARTÃO -->
         <div class="card">
             <section class="card-top-info">
-                <!-- <img src="./assets/visa-icon.png" alt="Bandeira Visa" title="Bandeira Visa"/> -->
-                <span>- - -</span>
+                <img id="card-flag" src="./assets/credit-card-icon.png" alt="Bandeira Visa" title="Bandeira Visa"/>
                 <img src="./assets/contactless-payment.png" alt="Aproximação Ícone" title="Aproximação Ícone"/>
             </section>
 
             <section class="card-number">
-                    <span class="text-empty">**** **** **** *****</span>
+                    <span class="text-empty">**** **** **** ****</span>
             </section>
 
             <section class="card-bottom-info">
@@ -32,7 +31,7 @@
         <!-- FORMULÁRIO -->
         <form class="card-info">
             <label class="input-box">
-                <span>Número do cartão</span>
+                <span>Número do cartão *</span>
                 <input 
                     id="user-card-number"
                     placeholder="**** **** **** ****"
@@ -41,17 +40,18 @@
             </label>
 
             <label  class="input-box">
-                <span>Nome do titular</span>
+                <span>Nome do titular *</span>
                 <input 
                     id="user-card-name"
                     placeholder="Nome como está no cartão"
                     maxlength="20"
+                    pattern="[A-Z]*"
                     required>
             </label>
             
             <div class="form-group">
                 <label class="input-box">
-                    <span>Validade</span>
+                    <span>Validade *</span>
                     <input 
                         id="user-card-validity" 
                         type="text"  
@@ -63,7 +63,7 @@
                 <label class="input-box">
                     <span>
                         CVV
-                        <img src="./assets/question.png" alt="Ajuda" title="Ajuda">
+                        <img src="./assets/question.png" alt="Ajuda" title="Código de Segurança do Cartão">
                     </span>
                     <input 
                         id="user-card-code"
