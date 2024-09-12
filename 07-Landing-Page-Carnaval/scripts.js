@@ -137,7 +137,7 @@ window.addEventListener('load', () => {
 btnSearchFestivalPlaces.addEventListener("click", (event) => {
     event.preventDefault()
 
-    const seletedOption = seletedOptionSpan.innerHTML
+    const seletedOption = seletedOptionSpan.textContent === "Selecione uma cidade" ? null : seletedOptionSpan.innerHTML 
     const festivalName = festivalNameInput.value
 
     let newFestivalPlaces = []
@@ -145,10 +145,12 @@ btnSearchFestivalPlaces.addEventListener("click", (event) => {
     if(seletedOption) {
         const filteredList = festivalPlacesList.filter(item => item.location === seletedOption)
         newFestivalPlaces = [...filteredList]
+    } else {
+        newFestivalPlaces = [...festivalPlacesList]
     }
 
     if(festivalName) {
-        const filteredList = newFestivalPlaces.filter(item => item.name.includes(festivalName))
+        const filteredList = newFestivalPlaces.filter(item => item.name.toLowerCase().includes(festivalName))
         newFestivalPlaces = [...filteredList]
     }
     
