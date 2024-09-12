@@ -90,6 +90,7 @@ function calculateOperation(){
     switch(operationSignal) {
         case '/':
             result = divisionOperation(values[0], values[1])
+            console.log(result)
             expressionTagSpan.innerHTML = `${values[0]} ${operationSignal} ${values[1]}`
             
             if(!result) {
@@ -97,30 +98,45 @@ function calculateOperation(){
                 return clear()
             }
 
+            if(String(result) >= 14){
+                return resultTagP.innerHTML = String(result).slice(0, 12)
+            }
+
+            resultTagP.innerHTML = result
             values[0] = result
+            values[1] = 0
             break;
         case '+':
             result = Number(values[0]) + Number(values[1])
+            resultTagP.innerHTML = result
+
             expressionTagSpan.innerHTML = `${values[0]} ${operationSignal} ${values[1]}`
+
             values[0] = result
             values[1] = 0
             break;
         case '-':
             result = values[0] - values[1]
+            resultTagP.innerHTML = result
+
             expressionTagSpan.innerHTML = `${values[0]} ${operationSignal} ${values[1]}`
+
             values[0] = result
+            values[1] = 0
             break;
         case 'x':
             result = values[0] * values[1]
+            resultTagP.innerHTML = result
+
             expressionTagSpan.innerHTML = `${values[0]} ${operationSignal} ${values[1]}`
+
             values[0] = result
+            values[1] = 0
             break;
         default: 
+            expressionTagSpan.innerHTML = "Error"
+            clear()
             break;
-    }
-
-    if(String(result) >= 14){
-        return resultTagP.innerHTML = String(result).slice(0, 12)
     }
 }
 
