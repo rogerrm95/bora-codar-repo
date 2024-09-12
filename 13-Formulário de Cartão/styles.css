@@ -96,7 +96,7 @@ input[type=number] {
 /* Classe */
 /* CARTÃO */
 .card {
-    background: url(../assets/background-card.png) no-repeat;
+    background: url(./assets/background-card.png) no-repeat;
     width: 280px;
     height: 168px;
     

@@ -50,13 +50,15 @@ async function getAirQuality() {
   const {data} = await axios.get(`http://api.waqi.info/feed/${STATE}/?token=${WAQ_API_KEY}`)
     .then(response => response.data)
 
+  console.log(data.iaqi)
+
   const airQuality = {
-    pm25: data.iaqi.pm25.v,
-    pm10: data.iaqi.pm10.v,
-    co: data.iaqi.co.v,
-    no2: data.iaqi.no2.v,
-    o3: data.iaqi.o3.v,
-    so2: data.iaqi.so2?.v || 0.0,
+    pm25: data.iaqi?.pm25?.v || 0.0,
+    pm10: data.iaqi?.pm10?.v || 0.0,
+    co: data.iaqi?.co?.v || 0.0,
+    no2: data.iaqi?.no2?.v || 0.0,
+    o3: data.iaqi?.o3?.v || 0.0,
+    so2: data.iaqi?.so2?.v || 0.0,
     aqi: airQualityAvaliation(data.aqi)
   }
 
