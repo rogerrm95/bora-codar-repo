@@ -230,10 +230,18 @@ inputUserCardCode.addEventListener('focus', () => {
     removeElementById('cvv-invalid')
 })
 
+// Verifica se todos os inputs estão preenchidos e não possuem erros //
 inputs.forEach(input => {
-    input.addEventListener('input', () => {
+    input.addEventListener('blur', () => {
         const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
 
-        buttonSubmit.disabled = !allFilled
+        const inputsError = document.getElementsByClassName('input-invalid')
+        const hasInputError = inputsError.length > 0 ?? false
+        
+        buttonSubmit.disabled = !allFilled || hasInputError
     })
+})
+
+buttonSubmit.addEventListener('click', () => {
+    alert("Cartão adicionado!")
 })
