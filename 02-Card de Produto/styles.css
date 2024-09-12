@@ -54,15 +54,19 @@ body * {
     
     margin: auto;
     padding: 1rem;
+
+    overflow: hidden;
 }
 
 #product-view {
     display: flex;
     justify-content: center;
     position: relative;
+
+    & > img {
+        width: 550px;
+    }
 }
-
-
 
 #product-view button {
     all: unset;
@@ -137,25 +141,22 @@ body * {
 @media (min-width: 992px) {
    .container {
         flex-direction: row;
-
-        margin: 1rem;
         max-width: none;
    }
-
-   #product-view > img {
-    max-width: auto;
-}
 }
     
 
 @media (min-width: 720px) {    
-    #product-view button {
-        right: 20%;
+    #product-view {
+        & button {
+            right: 20%;
+        }
     }
 }
 
 @media (max-width: 500px) {
+
     #product-view > img {
-        width: 275px;
+        width: 275px; 
     }
 }
