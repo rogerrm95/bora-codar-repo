@@ -10,7 +10,7 @@
 <body>
     <div id="container">
         <form>
-            <label for="file" id="file-input-box" class="upload-box">
+            <label for="file-input" id="file-input-box" class="upload-box">
                 <img src="./assets/upload-icon.png" alt="Ícone de Upload">
 
                 <p>Importe seus arquivos</p>
@@ -20,31 +20,11 @@
                 </span>
             </label>
 
-            <input type="file" name="file" id="file-input"/>
-
-            <!-- LISTA DE ARQUIVOS -->
-            <ul class="file-list">
-                <!-- ARQUIVO - CARD -->
-                <li class="file-card">
-                    <div class="file-image">
-                        <img src="./assets/uploading-icon.png" alt="Icone de Arquivo">
-                    </div>
-
-                    <div class="file-details">
-                        <p>Scann_158.pdf</p>
-                        <span>30 MB / 74 MB</span>
-
-                        <div class="file-progress-bar">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-
-                            <span class="file-percent">46%</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <input type="file" name="file" id="file-input" multiple/>
         </form>
+
+        <!-- LISTA DE ARQUIVOS -->
+        <ul class="file-list"></ul>
     </div>  
 </body>
     <script src="scripts.js"></script>  

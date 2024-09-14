@@ -65,16 +65,13 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1.25rem;
 
     padding: 2rem 1.5rem;
+    width: 100%;
 
-    & form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.25rem;
 
+    & form, ul {
         width: 100%;
         max-width: 440px;
     }
@@ -96,6 +93,8 @@ ul {
     border-radius: 8px;
     border: 1px dashed #C1B2FA;
     cursor: pointer;
+
+    transition: all 0.3s ease;
 
     & img {
         margin-bottom: 0.75rem;
@@ -175,7 +174,7 @@ ul {
     align-items: center;
 
     & > span {
-
+        text-align: center;
     }
 }
 
@@ -184,14 +183,15 @@ ul {
     height: 8px;
     background-color: var(--gray-100);
     border-radius: 16px;
-    overflow: hidden;
+    overflow: hidden;   
 }
 
-/* VIA JAVASCRIPT */
 .progress {
-    width: 46%;
+    width: 0%;
     background-color: var(--purple-700); 
     height: 100%;
+
+    transition: all 0.1s ease-in;
 }
 
 .file-percent {
@@ -203,17 +203,53 @@ ul {
     text-align: right;
 }
 
-.error-message {
-    color: var(--red-500);
-    opacity: 1;
-}
-
-.success-message {
+/* STATUS */
+.success-text {
     color: var(--green-500);
     opacity: 1;
 }
 
-/* MEDIA QUERIES */
-@media (min-width: 992px) {
+.success-progress {
+    background-color: var(--green-500);
+}
 
+.success-bg {
+    background-color: var(--green-100);
+}
+
+.error-text {
+    color: var(--red-500);
+    opacity: 1;
+}
+
+.error-progress {
+    background-color: var(--red-500);
+}
+
+.error-bg {
+    background-color: var(--red-100);
+}
+
+.drag-over {
+    opacity: 0.5;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 368px) {
+    .upload-box {
+        & p {
+            font-size: 12px;
+        }
+
+        & span {
+            margin-top: 0.5rem;
+            font-size: 10px;
+        }
+    }
 }
